@@ -31,6 +31,7 @@ Plug 'michaeljsmith/vim-indent-object'
 Plug 'justinmk/vim-sneak'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
+Plug 'wellle/targets.vim'
 Plug 'tpope/vim-repeat'
 Plug 'machakann/vim-highlightedyank'
 

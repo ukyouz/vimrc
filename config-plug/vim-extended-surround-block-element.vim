@@ -1,10 +1,10 @@
-let brackets = split('( ) [ ] { } < >')
-for b in brackets
-    execute "onoremap \<silent> in".b." :<C-u>normal! f".b."vi".b."\r"
-    execute "xnoremap \<silent> in".b." :<C-u>normal! f".b."vi".b."\r"
-    execute "onoremap \<silent> an".b." :<C-u>normal! f".b."va".b."\r"
-    execute "xnoremap \<silent> an".b." :<C-u>normal! f".b."va".b."\r"
-endfor
+" let brackets = split('( ) [ ] { } < >')
+" for b in brackets
+"     execute "onoremap \<silent> in".b." :<C-u>normal! f".b."vi".b."\r"
+"     execute "xnoremap \<silent> in".b." :<C-u>normal! f".b."vi".b."\r"
+"     execute "onoremap \<silent> an".b." :<C-u>normal! f".b."va".b."\r"
+"     execute "xnoremap \<silent> an".b." :<C-u>normal! f".b."va".b."\r"
+" endfor
 
 function! s:inParameter(isInner)
     let l:lineNr = line('.')
