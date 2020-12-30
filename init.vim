@@ -12,6 +12,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'junegunn/fzf' ", { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf' | Plug 'junegunn/fzf.vim'
 Plug 'itchyny/lightline.vim'
+Plug 'itchyny/lightline.vim' | Plug 'itchyny/vim-gitbranch'
 Plug 'preservim/tagbar' | Plug 'mkalinski/vim-lightline_tagbar'
 " Plug 'scrooloose/nerdtree'
 " Plug 'chazy/cscope_maps'

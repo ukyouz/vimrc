@@ -82,13 +82,14 @@ let g:lightline={
   \   'left': [ [ 'mode', 'paste' ],
   \             [ 'readonly', 'filename', 'tagbar' ] ],
   \   'right': [ [ 'lineinfo' ],
-  \              [ 'percent' ],
-  \              [ 'gitbranch', 'fileformat', 'fileencoding', 'filetype' ] ]
+  \              [ 'fileformat', 'fileencoding', 'filetype' ],
+  \              [ 'gitbranch' ] ]
   \ },
   \ 'component_function': {
   \   'mode': 'LightlineMode',
   \   'filename': 'LightlineFilename',
-  \   'gitbranch': 'FugitiveHead',
+  "\   'gitbranch': 'FugitiveHead',
+  \   'gitbranch': 'gitbranch#name',
   \   'tagbar': 'LightlineTagBar',
   \ },
   \ }
@@ -103,7 +104,7 @@ function! LightlineMode()
   \ lightline#mode()
 endfunction
 function! LightlineFilename()
-    let filename = expand('%:t') !=# '' ? @% : '[No Name]'
+    let filename = expand('%:t') !=# '' ? expand('%:p:.') : '[No Name]'
     let modified = &modified ? ' +' : ''
     return filename . modified
 endfunction
@@ -115,6 +116,25 @@ function! LightlineTagBar()
 	endif
     return tag
 endfunction
+
+" go current tag
+function! CurrentTagSearch()
+    let l:tag = split(LightlineTagBar(), '(')[0]
+    let l:search_term = l:tag
+    if &filetype ==# 'c'
+        " void main()
+        " static void main()
+        " ICODE static void main()
+        let l:search_term = '^\s*\(\(\w\+\)\s\+\)\+'.l:tag
+    elseif &filetype ==# 'python'
+        " def __init__():
+        let l:search_term = '^\s*def\s\+'.l:tag
+    endif
+    " echo l:search_term
+    call search(l:search_term, 'cb')
+    call search(l:tag, 'c', line('.'))
+endfunction
+nnoremap <silent> gt :call CurrentTagSearch()<CR>
 
 " rainbow
 let g:rainbow_active = 1
