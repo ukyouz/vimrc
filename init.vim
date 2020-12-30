@@ -60,6 +60,7 @@ Plug 'neoclide/coc.nvim' ", {'branch': 'release'}
 " Git Enhance
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
+Plug 'kdheepak/lazygit.nvim', { 'branch': 'nvim-v0.4.3' }
 " Plug 'kdheepak/lazygit.nvim' ", { 'branch': 'nvim-v0.4.3' } 
 
 " Syntax Enhance

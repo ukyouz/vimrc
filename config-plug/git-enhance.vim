@@ -12,3 +12,5 @@ let g:gitgutter_sign_removed            = '▁'
 nnoremap <leader>gb :Git blame --date=short<CR>
 nnoremap <leader>gs :Git<CR>
 nnoremap <leader>gd :Gdiffsplit<CR>
+
+nnoremap <leader>lg :LazyGit<CR>
