@@ -72,6 +72,8 @@ call plug#end()
 let mapleader=" "
 map ; :
 nnoremap <silent> <F5> :e!<CR>
+" lazy macro repeat
+nnoremap <silent> , @@
 
 ""Search for selected text, forwards or backwards.
 vnoremap <silent> * :<C-U>
@@ -98,7 +100,7 @@ nnoremap <silent> <C-=> :vertical resize +7<CR>
 nnoremap <silent> <C--> :vertical resize -7<CR>
 nnoremap <silent> <C-.> :resize +3<CR>
 nnoremap <silent> <C-,> :resize -3<CR>
-nnoremap <silent> <C-0> <C-w>=
+" nnoremap <silent> <C-0> <C-w>=
 " Toggle serch highlight
 nnoremap <silent> <F3> :noh<CR>
 nnoremap <silent> <F12> <C-]>
@@ -113,13 +115,18 @@ vnoremap <silent> <C-c> "*y
 " open termianl on the 80px-width split
 nnoremap <silent> <C-`> :80vs \| terminal<CR>a
 if has("nvim")
-    au TermOpen * tnoremap <Esc> <C-\><C-n>
-    au FileType fzf tunmap <Esc>
+augroup fzfesc
+    autocmd!
+    autocmd TermOpen * startinsert
+    " only apply setting to cmd terminal
+    autocmd TermOpen,TermEnter  term://.//*cmd* tnoremap <Esc> <C-\><C-n>
+    autocmd TermLeave,TermClose term://.//*cmd* tunmap <Esc>
+augroup END
 endif
 
 " show linenumber cursorline highlightsearch nowrap
 set shortmess+=at
-set number cursorline hlsearch nowrap
+set number cursorline hlsearch incsearch nowrap
 set linespace=3
 set scrolloff=0
 set autoread
@@ -133,7 +140,7 @@ set mouse=a
 "set clipboard+=unnamedplus
 set list listchars=tab:\┊\ ,trail:·,extends:?,precedes:?,nbsp:×
 set title
-set titlestring=%{expand(\"%:p:h\")}\ %a%r%m
+set titlestring=%{getcwd()}\ %a%r%m
 
 " Turn backup off
 set nobackup nowb noswapfile
@@ -144,6 +151,13 @@ augroup numbertoggle
   autocmd!
   autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
   autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
+augroup END
+
+" toggle cursorline
+augroup cursorlinetoggle
+  autocmd!
+  autocmd BufEnter,FocusGained * set cursorline
+  autocmd BufLeave,FocusLost   * set nocursorline
 augroup END
 
 " disable python style auto settings being overridden
