@@ -119,6 +119,7 @@ endfunction
 
 " go current tag
 function! CurrentTagSearch()
+    let l:cursor_pos = getpos('.')
     let l:tag = split(LightlineTagBar(), '(')[0]
     let l:search_term = l:tag
     if &filetype ==# 'c'
@@ -130,11 +131,13 @@ function! CurrentTagSearch()
         " def __init__():
         let l:search_term = '^\s*def\s\+'.l:tag
     endif
+    " push current cursor position to jump list
+    execute "normal " . l:cursor_pos[1] . "G" . (l:cursor_pos[2]-1) . "|"
     " echo l:search_term
     call search(l:search_term, 'cb')
     call search(l:tag, 'c', line('.'))
 endfunction
-nnoremap <silent> gt :call CurrentTagSearch()<CR>
+nnoremap <silent> <Leader>gt :call CurrentTagSearch()<CR>
 
 " rainbow
 let g:rainbow_active = 1
