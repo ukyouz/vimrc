@@ -34,6 +34,7 @@ Plug 'tpope/vim-surround'
 Plug 'wellle/targets.vim'
 Plug 'tpope/vim-repeat'
 Plug 'machakann/vim-highlightedyank'
+Plug 'bkad/CamelCaseMotion'
 
 " Plug 'christoomey/vim-system-copy'
 " Plug 'vim-airline/vim-airline' | Plug 'vim-airline/vim-airline-themes'
@@ -187,5 +188,6 @@ source $LOCALAPPDATA/nvim/config-plug/style-syntax.vim
 " source $LOCALAPPDATA/nvim/config-plug/gen_tags.vim
 " source $LOCALAPPDATA/nvim/config-plug/session.vim
 source $LOCALAPPDATA/nvim/config-plug/vim-grep.vim
+source $LOCALAPPDATA/nvim/config-plug/CamelCaseMotion.vim
 
 source $LOCALAPPDATA/nvim/config-plug/python-syntax.vim
