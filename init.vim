@@ -186,5 +186,6 @@ source $LOCALAPPDATA/nvim/config-plug/git-enhance.vim
 source $LOCALAPPDATA/nvim/config-plug/style-syntax.vim
 " source $LOCALAPPDATA/nvim/config-plug/gen_tags.vim
 " source $LOCALAPPDATA/nvim/config-plug/session.vim
+source $LOCALAPPDATA/nvim/config-plug/vim-grep.vim
 
 source $LOCALAPPDATA/nvim/config-plug/python-syntax.vim
