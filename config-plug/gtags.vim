@@ -1,6 +1,7 @@
 " gtags
 let $GTAGSLABEL = 'native-pygments'
-let $GTAGSCONF = 'D:/Applications/glo663wb/share/gtags/gtags.conf'
+" let $GTAGSCONF = 'D:/Applications/glo663wb/share/gtags/gtags.conf'
+let g:gutentags_exclude_filetypes = ['vim']
 " enable gtags module
 let g:gutentags_modules = []
 if executable('ctags')
@@ -21,11 +22,12 @@ let g:gutentags_cache_dir = s:vim_tags
 if !isdirectory(s:vim_tags)
     silent! call mkdir(s:vim_tags, 'p')
 endif
+let g:gutentags_file_list_command = 'rg --files'
 let g:gutentags_ctags_extra_args = ['--langmap=Python:.py.pyw']
 let g:gutentags_ctags_extra_args+= ['--languages=-JavaScript', '--languages=-Tcl']
 let g:gutentags_ctags_extra_args+= ['--if0=yes', '--excmd=number']
 let g:gutentags_ctags_extra_args+= ['--fields=+nS']
-" let g:gutentags_ctags_extra_args = ['--fields=+niazS', '--extra=+q']
+let g:gutentags_ctags_extra_args = ['--exclude=@.gitignore']
 " let g:gutentags_ctags_extra_args += ['--c++-kinds=+pxI']
 " let g:gutentags_ctags_extra_args += ['--c-kinds=+px']
 " change focus to quickfix window after search (optional).
