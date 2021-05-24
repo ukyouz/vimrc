@@ -52,28 +52,30 @@ Plug 'rakr/vim-one'
 
 ""completion
 Plug 'neoclide/coc.nvim' ", {'branch': 'release'}
-" Plug 'Shougo/deoplete.nvim', {'for': ['c', 'python']} ", { 'do': ':UpdateRemotePlugins' }
-" Plug 'Shougo/deoplete.nvim' | Plug 'Shougo/deoplete-clangx', {'for': ['c']}
+" Plug 'Shougo/deoplete.nvim', {'for': ['c', 'cpp', 'py', 'pyw']} ", { 'do': ':UpdateRemotePlugins' }
+" Plug 'Shougo/deoplete.nvim' | Plug 'Shougo/deoplete-clangx', {'for': ['c', 'cpp']}
+" Plug 'Shougo/deoplete.nvim' | Plug 'deoplete-plugins/deoplete-jedi', {'for': ['py', 'pyw']}
 " Plug 'Shougo/deoplete.nvim' | Plug 'deoplete-plugins/deoplete-clang', {'for': ['c']}
 " Plug 'Shougo/deoplete.nvim' | Plug 'Shougo/neoinclude.vim', {'for': ['c', 'cpp', 'h']}
-" Plug 'Shougo/deoplete.nvim' | Plug 'deoplete-plugins/deoplete-jedi', {'for': ['python']}
 
 " Git Enhance
 Plug 'airblade/vim-gitgutter'
-Plug 'tpope/vim-fugitive'
 Plug 'kdheepak/lazygit.nvim', { 'branch': 'nvim-v0.4.3' }
-" Plug 'kdheepak/lazygit.nvim' ", { 'branch': 'nvim-v0.4.3' } 
+Plug 'tpope/vim-fugitive'
+Plug 'kdheepak/lazygit.nvim' ", { 'branch': 'nvim-v0.4.3' } 
 
 " Syntax Enhance
-Plug 'octol/vim-cpp-enhanced-highlight', {'for': ['c', 'cpp', 'h']}
-Plug 'jackguo380/vim-lsp-cxx-highlight', {'for': ['c', 'cpp', 'h']}
 Plug 'vim-python/python-syntax', {'for': ['python', 'py', 'pyw']}
+Plug 'octol/vim-cpp-enhanced-highlight', {'for': ['c']}
+" Plug 'jackguo380/vim-lsp-cxx-highlight', {'for': ['c', 'cpp', 'h']}
 Plug 'luochen1990/rainbow'
 " Initialize plugin system
 call plug#end()
 
 let mapleader=" "
 map ; :
+imap kj <Esc>
+imap jk <Esc>
 nnoremap <silent> <F5> :e!<CR>
 " lazy macro repeat
 nnoremap <silent> , @@
@@ -106,17 +108,22 @@ nnoremap <silent> <C-,> :resize -3<CR>
 " nnoremap <silent> <C-0> <C-w>=
 " Toggle serch highlight
 nnoremap <silent> <F3> :noh<CR>
-nnoremap <silent> <F12> <C-]>
+nnoremap <silent> <F12> <C-]>zt
 
 inoremap <C-s> <Esc>:w<CR>a
 nnoremap <C-s> :w<CR>
 " Copy to system clipboard
 inoremap <silent> <C-v> <Esc>"*pa
 vnoremap <silent> <C-c> "*y
+" Quick Split
+nnoremap <silent> <C-\> :vsplit<CR>
+nnoremap <silent> <C-/> :split<CR>
 
 " Terminal
-" open termianl on the 80px-width split
-nnoremap <silent> <C-`> :80vs \| terminal<CR>a
+" open termianl on the 80px-width vertical split
+"nnoremap <silent> <C-`> :80vs \| terminal<CR>
+" open ipython on the 10px-height horizontal split
+" nnoremap <silent> <M-`> :10sp \| terminal<CR>ipython<CR>
 if has("nvim")
 augroup fzfesc
     autocmd!
@@ -171,7 +178,7 @@ set viewoptions=cursor,folds,slash,unix
 
 source $LOCALAPPDATA/nvim/config-plug/vim-sneak.vim
 source $LOCALAPPDATA/nvim/config-plug/vim-commentary.vim
-source $LOCALAPPDATA/nvim/config-plug/vim-extended-surround-block-element.vim
+" source $LOCALAPPDATA/nvim/config-plug/vim-extended-surround-block-element.vim
 source $LOCALAPPDATA/nvim/config-plug/vim-highlightedyank.vim
 source $LOCALAPPDATA/nvim/config-plug/nerdtree.vim
 " source $LOCALAPPDATA/nvim/config-plug/ctrlp.vim
