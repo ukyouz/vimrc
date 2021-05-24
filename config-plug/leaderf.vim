@@ -51,6 +51,25 @@ let g:Lf_WildIgnore = {
 let g:Lf_RootMarkers = ['.root', '.git', '.svn']
 let g:Lf_JumpToExistingWindow = 0
 
+let g:Lf_NormalMap = {
+    \ "_":      [["<C-j>", "j"],
+    \            ["<C-k>", "k"]
+    \           ],
+    \ "File":   [["<ESC>", ':exec g:Lf_py "fileExplManager.quit()"<CR>']],
+    \ "Buffer": [["<ESC>", ':exec g:Lf_py "bufExplManager.quit()"<CR>']],
+    \ "Mru":    [["<ESC>", ':exec g:Lf_py "mruExplManager.quit()"<CR>']],
+    \ "Tag":    [["<ESC>", ':exec g:Lf_py "tagExplManager.quit()"<CR>']],
+    \ "Gtags":  [["<ESC>", ':exec g:Lf_py "gtagsExplManager.quit()"<CR>']],
+    \ "BufTag": [["<ESC>", ':exec g:Lf_py "bufTagExplManager.quit()"<CR>']],
+    \ "Function": [["<ESC>", ':exec g:Lf_py "functionExplManager.quit()"<CR>']],
+    \ "Rg":     [["<ESC>", ':exec g:Lf_py "rgExplManager.quit()"<CR>']],
+    \ "Line":   [["<ESC>", ':exec g:Lf_py "lineExplManager.quit()"<CR>']],
+    \ "History":[["<ESC>", ':exec g:Lf_py "historyExplManager.quit()"<CR>']],
+    \ "Help":   [["<ESC>", ':exec g:Lf_py "helpExplManager.quit()"<CR>']],
+    \ "Self":   [["<ESC>", ':exec g:Lf_py "selfExplManager.quit()"<CR>']],
+    \ "Colorscheme": [["<ESC>", ':exec g:Lf_py "colorschemeExplManager.quit()"<CR>']]
+\}
+
 let g:Lf_ShortcutF = "<leader>ff"
 nnoremap <leader>b :LeaderfBuffer<CR><Tab>
 nnoremap <leader>p :LeaderfFile<CR>
@@ -63,11 +82,11 @@ nnoremap <leader>fl :<C-U><C-R>=printf("Leaderf line %s", "")<CR><CR>
 nnoremap <Leader>ff :Leaderf rg<CR>
 nnoremap <Leader>fb :Leaderf rg --current-buffer<CR>
 " noremap <Leader>f :<C-U><C-R>=printf("Leaderf! rg --current-buffer -e %s ", expand("<cword>"))<CR><CR>
-nnoremap <Leader>j :<C-U><C-R>=printf("Leaderf! rg -F -e %s ", expand("<cword>"))<CR><CR>
-nnoremap <Leader>k :<C-U><C-R>=printf("Leaderf! rg -F -s -w -e %s ", expand("<cword>"))<CR><CR>
+nnoremap <Leader>j :<C-U><C-R>=printf("Leaderf! rg -e %s ", expand("<cword>"))<CR><CR>
+nnoremap <Leader>k :<C-U><C-R>=printf("Leaderf! rg -s -w -e %s ", expand("<cword>"))<CR><CR>
 " search visually selected text literally
-xnoremap <Leader>j :<C-U><C-R>=printf("Leaderf! rg -F -e %s ", leaderf#Rg#visual())<CR><CR>
-xnoremap <Leader>k :<C-U><C-R>=printf("Leaderf! rg -F -s -w -e %s ", leaderf#Rg#visual())<CR><CR>
+xnoremap <Leader>j :<C-U><C-R>=printf("Leaderf! rg -e %s ", leaderf#Rg#visual())<CR><CR>
+xnoremap <Leader>k :<C-U><C-R>=printf("Leaderf! rg -s -w -e %s ", leaderf#Rg#visual())<CR><CR>
 " restore latest search
 nnoremap <Leader>u :<C-U>Leaderf! rg --recall<CR>
 noremap <F4>      :<C-U>Leaderf! rg --next<CR>
@@ -78,8 +97,10 @@ let g:Lf_Gtagslabel = 'native-pygments'
 nnoremap <leader>t :Leaderf gtags<CR>
 nnoremap <leader>fr :<C-U><C-R>=printf("Leaderf! gtags -r %s --auto-jump", expand("<cword>"))<CR><CR>
 nnoremap <leader>fd :<C-U><C-R>=printf("Leaderf! gtags -d %s --auto-jump", expand("<cword>"))<CR><CR>
+" nnoremap <C-]>      :<C-U><C-R>=printf("Leaderf! gtags -d %s --auto-jump", expand("<cword>"))<CR><CR>
 nnoremap <leader>fu :<C-U><C-R>=printf("Leaderf! gtags --recall %s", "")<CR><CR>
 " nnoremap <F4>       :<C-U><C-R>=printf("Leaderf gtags --next %s", "")<CR><CR>
 " nnoremap <S-F4>     :<C-U><C-R>=printf("Leaderf gtags --previous %s", "")<CR><CR>
 
 nnoremap \ :LeaderfRgInteractive<CR>
+
