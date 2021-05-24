@@ -3,7 +3,7 @@ filetype plugin on
 " - For Neovim: stdpath('data') . '/plugged'
 " - Avoid using standard Vim directory names like 'plugin'
 " let g:python3_host_prog=expand('D:/Applications/Neovim/bin/python.exe') " Python 3
-let g:python3_host_prog=expand('C:/Users/johnny_cheng/AppData/Local/Programs/Python/Python38/python.exe') " Python 3
+let g:python3_host_prog=expand('$LOCALAPPDATA\Programs\Python\Python38\python.exe') " Python 3
 call plug#begin('~/.vim/plugged')
 ""Make sure you use single quotes
 " Plugin outside ~/.vim/plugged with post-update hook
@@ -14,6 +14,8 @@ Plug 'junegunn/fzf' | Plug 'junegunn/fzf.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'itchyny/lightline.vim' | Plug 'itchyny/vim-gitbranch'
 Plug 'preservim/tagbar' | Plug 'mkalinski/vim-lightline_tagbar'
+" Plug 'vim-airline/vim-airline' | Plug 'vim-airline/vim-airline-themes'
+" Plug 'TaDaa/vimade'
 Plug 'scrooloose/nerdtree'
 " Plug 'chazy/cscope_maps'
 Plug 'Yggdroot/LeaderF' ", { 'do': './install.sh' }
@@ -35,9 +37,9 @@ Plug 'wellle/targets.vim'
 Plug 'tpope/vim-repeat'
 Plug 'machakann/vim-highlightedyank'
 Plug 'bkad/CamelCaseMotion'
+" Plug 'sillybun/vim-repl'
 
 " Plug 'christoomey/vim-system-copy'
-" Plug 'vim-airline/vim-airline' | Plug 'vim-airline/vim-airline-themes'
 " Plug 'drewtempelmeyer/palenight.vim'
 " Plug 'easymotion/vim-easymotion'
 " Plug 'bling/vim-bufferline'
@@ -57,6 +59,7 @@ Plug 'neoclide/coc.nvim' ", {'branch': 'release'}
 " Plug 'Shougo/deoplete.nvim' | Plug 'deoplete-plugins/deoplete-jedi', {'for': ['py', 'pyw']}
 " Plug 'Shougo/deoplete.nvim' | Plug 'deoplete-plugins/deoplete-clang', {'for': ['c']}
 " Plug 'Shougo/deoplete.nvim' | Plug 'Shougo/neoinclude.vim', {'for': ['c', 'cpp', 'h']}
+" Plug 'hari-rangarajan/CCTree', {'for': ['c', 'cpp']}
 
 " Git Enhance
 Plug 'airblade/vim-gitgutter'
@@ -176,10 +179,12 @@ augroup END
 ""restore_view
 set viewoptions=cursor,folds,slash,unix
 
+source $LOCALAPPDATA/nvim/config-plug/c-enhance.vim
 source $LOCALAPPDATA/nvim/config-plug/vim-sneak.vim
 source $LOCALAPPDATA/nvim/config-plug/vim-commentary.vim
 " source $LOCALAPPDATA/nvim/config-plug/vim-extended-surround-block-element.vim
 source $LOCALAPPDATA/nvim/config-plug/vim-highlightedyank.vim
+" source $LOCALAPPDATA/nvim/config-plug/vimade.vim
 source $LOCALAPPDATA/nvim/config-plug/nerdtree.vim
 " source $LOCALAPPDATA/nvim/config-plug/ctrlp.vim
 source $LOCALAPPDATA/nvim/config-plug/fzf.vim
@@ -189,6 +194,7 @@ source $LOCALAPPDATA/nvim/config-plug/gtags.vim
 " source $LOCALAPPDATA/nvim/cconfig-plug/denite.vim
 source $LOCALAPPDATA/nvim/config-plug/vim-preview.vim
 source $LOCALAPPDATA/nvim/config-plug/leaderf.vim
+" source $LOCALAPPDATA/nvim/config-plug/cctree.vim
 source $LOCALAPPDATA/nvim/config-plug/startify.vim
 source $LOCALAPPDATA/nvim/config-plug/git-enhance.vim
 source $LOCALAPPDATA/nvim/config-plug/style-syntax.vim
