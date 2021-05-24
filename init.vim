@@ -14,7 +14,7 @@ Plug 'junegunn/fzf' | Plug 'junegunn/fzf.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'itchyny/lightline.vim' | Plug 'itchyny/vim-gitbranch'
 Plug 'preservim/tagbar' | Plug 'mkalinski/vim-lightline_tagbar'
-" Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdtree'
 " Plug 'chazy/cscope_maps'
 Plug 'Yggdroot/LeaderF' ", { 'do': './install.sh' }
 Plug 'kshenoy/vim-signature'
@@ -172,7 +172,7 @@ source $LOCALAPPDATA/nvim/config-plug/vim-sneak.vim
 source $LOCALAPPDATA/nvim/config-plug/vim-commentary.vim
 source $LOCALAPPDATA/nvim/config-plug/vim-extended-surround-block-element.vim
 source $LOCALAPPDATA/nvim/config-plug/vim-highlightedyank.vim
-" source $LOCALAPPDATA/nvim/config-plug/nerdtree.vim
+source $LOCALAPPDATA/nvim/config-plug/nerdtree.vim
 " source $LOCALAPPDATA/nvim/config-plug/ctrlp.vim
 source $LOCALAPPDATA/nvim/config-plug/fzf.vim
 source $LOCALAPPDATA/nvim/config-plug/coc.vim
