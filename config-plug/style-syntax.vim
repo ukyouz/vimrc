@@ -120,6 +120,10 @@ endfunction
 " go current tag
 function! CurrentTagSearch()
     let l:cursor_pos = getpos('.')
+    if len(split(LightlineTagBar(), '(')) ==# 0
+        echo "No tag found."
+        return
+    endif
     let l:tag = split(LightlineTagBar(), '(')[0]
     let l:search_term = l:tag
     if &filetype ==# 'c'
