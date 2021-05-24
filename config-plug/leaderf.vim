@@ -18,7 +18,7 @@ let g:Lf_StlSeparator = { 'left': '', 'right': '' }
 let g:Lf_DisableStl = 0
 let g:Lf_DefaultExternalTool = 'rg'
 let g:Lf_RgHighlightInPreview = 1
-let g:Lf_RgConfig = ['--glob=!git/*', '--hidden', '--threads', '8', '-S']
+let g:Lf_RgConfig = ['--glob=!git/*', '--threads', '8']
 augroup rg_config_specify_setting
     autocmd!
     autocmd FileType c,cpp  let g:Lf_RgConfig += ['-tasm', '-tc']
