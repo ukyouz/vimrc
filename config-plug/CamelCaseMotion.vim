@@ -1,1 +1,1 @@
-let g:camelcasemotion_key = "'"
+let g:camelcasemotion_key = "\\"
