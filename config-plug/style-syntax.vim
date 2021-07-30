@@ -140,6 +140,7 @@ function! CurrentTagSearch()
     " echo l:search_term
     call search(l:search_term, 'cb')
     call search(l:tag, 'c', line('.'))
+    execute "normal zt"
 endfunction
 nnoremap <silent> <Leader>gt :call CurrentTagSearch()<CR>
 
