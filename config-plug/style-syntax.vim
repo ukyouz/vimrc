@@ -130,7 +130,8 @@ function! CurrentTagSearch()
         " void main()
         " static void main()
         " ICODE static void main()
-        let l:search_term = '^\s*\(\(\w\+\)\s\+\)\+'.l:tag
+        " static void __attribute__ ((unused)) main()
+        let l:search_term = '^\([!-~]\+\s\+\)\+'.l:tag
     elseif &filetype ==# 'python'
         " def __init__():
         let l:search_term = '^\s*def\s\+'.l:tag
@@ -140,7 +141,6 @@ function! CurrentTagSearch()
     " echo l:search_term
     call search(l:search_term, 'cb')
     call search(l:tag, 'c', line('.'))
-    execute "normal zt"
 endfunction
 nnoremap <silent> <Leader>gt :call CurrentTagSearch()<CR>
 
