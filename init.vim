@@ -63,9 +63,8 @@ Plug 'neoclide/coc.nvim' ", {'branch': 'release'}
 
 " Git Enhance
 Plug 'airblade/vim-gitgutter'
-Plug 'kdheepak/lazygit.nvim', { 'branch': 'nvim-v0.4.3' }
 Plug 'tpope/vim-fugitive'
-Plug 'kdheepak/lazygit.nvim' ", { 'branch': 'nvim-v0.4.3' } 
+Plug 'kdheepak/lazygit.nvim'
 
 " Syntax Enhance
 Plug 'vim-python/python-syntax', {'for': ['python', 'py', 'pyw']}
