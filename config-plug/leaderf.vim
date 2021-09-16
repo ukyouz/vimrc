@@ -12,7 +12,7 @@ let g:Lf_PreviewInPopup = 1
 let g:Lf_PreviewCode = 1
 let g:Lf_PreviewWidth = 0
 let g:Lf_PreviewHeight = 0
-let g:Lf_PreviewResult = { 'BufTag': 1, 'Function': 1, 'Colorscheme': 1 }
+let g:Lf_PreviewResult = { 'BufTag': 0, 'Function': 1, 'Colorscheme': 1 }
 let g:Lf_StlColorscheme = 'one'
 let g:Lf_StlSeparator = { 'left': '', 'right': '' }
 let g:Lf_DisableStl = 0
@@ -28,7 +28,7 @@ let g:Lf_ReverseOrder = 1
 let g:Lf_ShowDevIcons = 0
 " let g:Lf_DevIconsFont = 'Fira Mono for Powerline'
 let g:Lf_ShowRelativePath = 1
-let g:Lf_DefaultMode = 'NameOnly'
+" let g:Lf_DefaultMode = 'NameOnly'
 let g:Lf_NeedCacheTime = 1
 " let g:Lf_Gtagsconf = $GTAGSCONF
 
@@ -46,7 +46,7 @@ let g:Lf_GtagsSkipUnreadable = 1
 let g:Lf_HighlightIndividual = 1
 let g:Lf_WildIgnore = {
     \ 'dir': ['.svn','.git','.hg','.*','debug_launch_configuration'],
-    \ 'file': ['*.sw?','~$*','*.bak','*.exe','*.o','*.so','*.py[co]','*.launch','*.xml']
+    \ 'file': ['*.sw?','~$*','*.bak','*.exe','*.o','*.so','*.py[co]','*.launch','*.xml','*.db']
     \}
 let g:Lf_RootMarkers = ['.root', '.git', '.svn']
 let g:Lf_JumpToExistingWindow = 0
@@ -75,12 +75,12 @@ nnoremap <leader>b :LeaderfBuffer<CR><Tab>
 nnoremap <leader>p :LeaderfFile<CR>
 " noremap <leader>fb :<C-U><C-R>=printf("Leaderf buffer %s", "")<CR><CR>
 " noremap <leader>fm :<C-U><C-R>=printf("Leaderf mru %s", "")<CR><CR>
-nnoremap <leader>ft :<C-U><C-R>=printf("Leaderf bufTag %s", "")<CR><CR>
-nnoremap <leader>fl :<C-U><C-R>=printf("Leaderf line %s", "")<CR><CR>
+nnoremap <leader>bt :<C-U><C-R>=printf("Leaderf bufTag %s", "")<CR><CR>
+nnoremap <leader>ll :<C-U><C-R>=printf("Leaderf line %s", "")<CR><CR>
 
 " noremap <Leader>r :Leaderf rg<CR>
-nnoremap <Leader>ff :Leaderf rg<CR>
-nnoremap <Leader>fb :Leaderf rg --current-buffer<CR>
+nnoremap <Leader>lf :Leaderf rg<CR>
+" nnoremap <Leader>lb :Leaderf rg --current-buffer<CR>
 " noremap <Leader>f :<C-U><C-R>=printf("Leaderf! rg --current-buffer -e %s ", expand("<cword>"))<CR><CR>
 nnoremap <Leader>j :<C-U><C-R>=printf("Leaderf! rg -e %s ", expand("<cword>"))<CR><CR>
 nnoremap <Leader>k :<C-U><C-R>=printf("Leaderf! rg -s -w -e %s ", expand("<cword>"))<CR><CR>
@@ -95,10 +95,10 @@ noremap <S-F4>    :<C-U>Leaderf! rg --prev<CR>
 " should use `Leaderf gtags --update` first
 let g:Lf_Gtagslabel = 'native-pygments'
 nnoremap <leader>t :Leaderf gtags<CR>
-nnoremap <leader>fr :<C-U><C-R>=printf("Leaderf! gtags -r %s --auto-jump", expand("<cword>"))<CR><CR>
-nnoremap <leader>fd :<C-U><C-R>=printf("Leaderf! gtags -d %s --auto-jump", expand("<cword>"))<CR><CR>
+nnoremap <leader>lr :<C-U><C-R>=printf("Leaderf! gtags -r %s --auto-jump", expand("<cword>"))<CR><CR>
+nnoremap <leader>ld :<C-U><C-R>=printf("Leaderf! gtags -d %s --auto-jump", expand("<cword>"))<CR><CR>
 " nnoremap <C-]>      :<C-U><C-R>=printf("Leaderf! gtags -d %s --auto-jump", expand("<cword>"))<CR><CR>
-nnoremap <leader>fu :<C-U><C-R>=printf("Leaderf! gtags --recall %s", "")<CR><CR>
+nnoremap <leader>lu :<C-U><C-R>=printf("Leaderf! gtags --recall %s", "")<CR><CR>
 " nnoremap <F4>       :<C-U><C-R>=printf("Leaderf gtags --next %s", "")<CR><CR>
 " nnoremap <S-F4>     :<C-U><C-R>=printf("Leaderf gtags --previous %s", "")<CR><CR>
 
