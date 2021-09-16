@@ -1,5 +1,5 @@
 " NERDTree keymap
-nnoremap <C-e> :NERDTreeToggle<CR>
+nnoremap <Leader>e :NERDTreeToggle<CR>
 autocmd VimEnter * call NERDTreeAddKeyMap({ 'key': 'h', 'callback': 'NTreeMapCloseDir' })
 autocmd VimEnter * call NERDTreeAddKeyMap({ 'key': 'l', 'callback': 'NTreeMapOpenDir' })
 function! NTreeMapCloseDir()
