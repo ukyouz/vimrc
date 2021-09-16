@@ -28,6 +28,7 @@ Plug 'skywind3000/vim-preview'
 " Plug 'Shougo/denite.nvim' | Plug 'ozelentok/denite-gtags', {'for': ['c', 'cpp', 'h']}
 " Plug 'Shougo/denite.nvim' | Plug 'chemzqm/denite-git'
 
+Plug 'equalsraf/neovim-gui-shim'
 Plug 'andymass/vim-matchup'
 Plug 'michaeljsmith/vim-indent-object'
 Plug 'justinmk/vim-sneak'
@@ -49,6 +50,8 @@ Plug 'vim-scripts/restore_view.vim'
 
 " Color Theme
 Plug 'rakr/vim-one'
+Plug 'ukyouz/onedark.vim'
+" Plug 'navarasu/onedark.nvim'
 " Plug 'ayu-theme/ayu-vim'
 " Plug 'lifepillar/vim-solarized8'
 
@@ -67,10 +70,17 @@ Plug 'tpope/vim-fugitive'
 Plug 'kdheepak/lazygit.nvim'
 
 " Syntax Enhance
+Plug 'nvim-treesitter/nvim-treesitter'
+Plug 'nvim-treesitter/nvim-treesitter-textobjects'
+Plug 'nvim-treesitter/nvim-treesitter-refactor'
+" Plug 'romgrk/nvim-treesitter-context'
+Plug 'folke/twilight.nvim'
+Plug 'nvim-treesitter/playground'
+" Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'vim-python/python-syntax', {'for': ['python', 'py', 'pyw']}
-Plug 'octol/vim-cpp-enhanced-highlight', {'for': ['c']}
+" Plug 'octol/vim-cpp-enhanced-highlight', {'for': ['c']}
 " Plug 'jackguo380/vim-lsp-cxx-highlight', {'for': ['c', 'cpp', 'h']}
-Plug 'luochen1990/rainbow'
+" Plug 'luochen1990/rainbow'
 " Initialize plugin system
 call plug#end()
 
@@ -197,6 +207,7 @@ source $LOCALAPPDATA/nvim/config-plug/leaderf.vim
 source $LOCALAPPDATA/nvim/config-plug/startify.vim
 source $LOCALAPPDATA/nvim/config-plug/git-enhance.vim
 source $LOCALAPPDATA/nvim/config-plug/style-syntax.vim
+source $LOCALAPPDATA/nvim/config-plug/treesitter.vim
 " source $LOCALAPPDATA/nvim/config-plug/gen_tags.vim
 " source $LOCALAPPDATA/nvim/config-plug/session.vim
 source $LOCALAPPDATA/nvim/config-plug/vim-grep.vim

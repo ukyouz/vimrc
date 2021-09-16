@@ -18,8 +18,9 @@ endif
 set background=dark
 " colorscheme base16-eighties
 let g:one_allow_italics = 1 " I love italic for comments
-colorscheme one
+colorscheme onedark
 " colorscheme solarized8
+if g:colors_name ==# 'one'
 " call one#highlight('name', 'Foreground', 'Background', 'none')
 call one#highlight('VertSplit', '4c5363', '4c5363', 'none')
 call one#highlight('Comment', '6A748C', 'none', 'none')
@@ -49,6 +50,12 @@ call one#highlight('DiffText'   , s:visual_grey, s:light_green, 'none')
 call one#highlight('DiffLine'   , s:visual_grey, s:dark_green , 'none')
 call one#highlight('DiffAdded'  , s:visual_grey, s:light_green, 'none')
 call one#highlight('DiffRemoved', s:visual_grey, s:light_red  , 'none')
+endif
+
+if g:colors_name ==# 'onedark'
+    let g:onedark_style = 'deep'
+endif
+
 "let ayucolor="mirage"   " for dark version of theme
 "colorscheme ayu
 
@@ -182,3 +189,4 @@ let g:airline#extensions#tabline#enabled = 0
 let g:cpp_class_scope_highlight=1
 let g:cpp_member_variable_highlight=1
 let g:cpp_experimental_template_highlight=1
+
