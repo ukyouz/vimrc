@@ -64,6 +64,8 @@ Plug 'neoclide/coc.nvim' ", {'branch': 'release'}
 " Plug 'Shougo/deoplete.nvim' | Plug 'deoplete-plugins/deoplete-clang', {'for': ['c']}
 " Plug 'Shougo/deoplete.nvim' | Plug 'Shougo/neoinclude.vim', {'for': ['c', 'cpp', 'h']}
 " Plug 'hari-rangarajan/CCTree', {'for': ['c', 'cpp']}
+Plug 'neovim/nvim-lspconfig'
+Plug 'nvim-lua/completion-nvim'
 
 " Git Enhance
 Plug 'airblade/vim-gitgutter'
@@ -200,6 +202,7 @@ source $LOCALAPPDATA/nvim/config-plug/nerdtree.vim
 " source $LOCALAPPDATA/nvim/config-plug/ctrlp.vim
 source $LOCALAPPDATA/nvim/config-plug/fzf.vim
 source $LOCALAPPDATA/nvim/config-plug/coc.vim
+source $LOCALAPPDATA/nvim/config-plug/lspconfig.vim
 " source $LOCALAPPDATA/nvim/config-plug/deoplete.vim
 source $LOCALAPPDATA/nvim/config-plug/gtags.vim
 " source $LOCALAPPDATA/nvim/cconfig-plug/denite.vim
