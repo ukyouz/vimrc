@@ -87,11 +87,11 @@ call plug#end()
 
 let mapleader=" "
 map ; :
-imap kj <Esc>
-imap jk <Esc>
+" imap kj <Esc>
+" imap jk <Esc>
 nnoremap <silent> <F5> :e!<CR>
 " lazy macro repeat
-nnoremap <silent> , @@
+nnoremap <silent> <a-,> @@
 
 ""Search for selected text, forwards or backwards.
 vnoremap <silent> * :<C-U>
@@ -129,8 +129,8 @@ nnoremap <C-s> :w<CR>
 inoremap <silent> <C-v> <Esc>"*pa
 vnoremap <silent> <C-c> "*y
 " Quick Split
-nnoremap <silent> <C-\> :vsplit<CR>
-nnoremap <silent> <C-/> :split<CR>
+" nnoremap <silent> <C-\> :vsplit<CR>
+" nnoremap <silent> <C-/> :split<CR>
 
 " Terminal
 " open termianl on the 80px-width vertical split
@@ -150,7 +150,7 @@ endif
 " show linenumber cursorline highlightsearch nowrap
 set shortmess+=at
 set number cursorline hlsearch incsearch nowrap
-set linespace=3
+set linespace=1
 set scrolloff=0
 set autoread
 set autoindent
