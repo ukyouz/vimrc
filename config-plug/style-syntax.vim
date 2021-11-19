@@ -84,7 +84,7 @@ let g:lightline_tagbar#format = '%s'
 let g:lightline_tagbar#flags = ''
 
 let g:lightline={
-  \ 'colorscheme': 'wombat',
+  \ 'colorscheme': 'one',
   \ 'active': {
   \   'left': [ [ 'mode', 'paste' ],
   \             [ 'readonly', 'filename', 'tagbar' ] ],
@@ -111,27 +111,25 @@ function! LightlineMode()
   \ lightline#mode()
 endfunction
 function! LightlineFilename()
-    let filename = expand('%:t') !=# '' ? expand('%:p:.') : '[No Name]'
+    let filename = expand('%:~:.')
+    let filename = filename !=# '' ? filename : '[No Name]'
     let modified = &modified ? ' +' : ''
     return filename . modified
 endfunction
 function! LightlineTagBar()
-    let filename = expand('%:t') !=# '' ? @% : ''
-	let tag = ''
-    if filename != ''
-		let tag = lightline_tagbar#component()
-	endif
+    let filename = @%
+    let tag = filename !=# '' ? lightline_tagbar#component() : ''
     return tag
 endfunction
 
 " go current tag
 function! CurrentTagSearch()
-    let l:cursor_pos = getpos('.')
-    if len(split(LightlineTagBar(), '(')) ==# 0
+    let curr_tags = split(LightlineTagBar(), '(')
+    if len(curr_tags) ==# 0
         echo "No tag found."
         return
     endif
-    let l:tag = split(LightlineTagBar(), '(')[0]
+    let l:tag = curr_tags[0]
     let l:search_term = l:tag
     if &filetype ==# 'c'
         " void main()
@@ -144,6 +142,7 @@ function! CurrentTagSearch()
         let l:search_term = '^\s*def\s\+'.l:tag
     endif
     " push current cursor position to jump list
+    let l:cursor_pos = getpos('.')
     execute "normal " . l:cursor_pos[1] . "G" . (l:cursor_pos[2]-1) . "|"
     " echo l:search_term
     call search(l:search_term, 'cb')
