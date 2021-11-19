@@ -95,8 +95,8 @@ let g:lightline={
   \ 'component_function': {
   \   'mode': 'LightlineMode',
   \   'filename': 'LightlineFilename',
-  "\   'gitbranch': 'FugitiveHead',
-  \   'gitbranch': 'gitbranch#name',
+  \   'gitbranch': 'FugitiveHead',
+  "\   'gitbranch': 'gitbranch#name',
   \   'tagbar': 'LightlineTagBar',
   \ },
   \ }
@@ -188,4 +188,11 @@ let g:airline#extensions#tabline#enabled = 0
 let g:cpp_class_scope_highlight=1
 let g:cpp_member_variable_highlight=1
 let g:cpp_experimental_template_highlight=1
+
+
+" python auto delete unwanted spaces in empty lines
+augroup python_strip_unwated_spaces
+    autocmd!
+    autocmd BufWritePre *.py,*.pyw :%s/\s\+$//e
+augroup END
 

@@ -1,6 +1,6 @@
 " gitgutter config
 set signcolumn=yes
-set updatetime=100
+set updatetime=300
 let g:gitgutter_sign_added              = '▌'
 let g:gitgutter_sign_modified           = '▌'
 let g:gitgutter_sign_modified_removed   = '▌'
