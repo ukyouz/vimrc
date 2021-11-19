@@ -57,8 +57,8 @@ Plug 'ukyouz/onedark.vim'
 " Plug 'lifepillar/vim-solarized8'
 
 ""completion
-Plug 'neoclide/coc.nvim' ", {'branch': 'release'}
-" Plug 'Shougo/deoplete.nvim', {'for': ['c', 'cpp', 'py', 'pyw']} ", { 'do': ':UpdateRemotePlugins' }
+" Plug 'neoclide/coc.nvim' ", {'branch': 'release'}
+" Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 " Plug 'Shougo/deoplete.nvim' | Plug 'Shougo/deoplete-clangx', {'for': ['c', 'cpp']}
 " Plug 'Shougo/deoplete.nvim' | Plug 'deoplete-plugins/deoplete-jedi', {'for': ['py', 'pyw']}
 " Plug 'Shougo/deoplete.nvim' | Plug 'deoplete-plugins/deoplete-clang', {'for': ['c']}
@@ -201,7 +201,7 @@ source $LOCALAPPDATA/nvim/config-plug/search-pulse.vim
 source $LOCALAPPDATA/nvim/config-plug/nerdtree.vim
 " source $LOCALAPPDATA/nvim/config-plug/ctrlp.vim
 source $LOCALAPPDATA/nvim/config-plug/fzf.vim
-source $LOCALAPPDATA/nvim/config-plug/coc.vim
+" source $LOCALAPPDATA/nvim/config-plug/coc.vim
 source $LOCALAPPDATA/nvim/config-plug/lspconfig.vim
 " source $LOCALAPPDATA/nvim/config-plug/deoplete.vim
 source $LOCALAPPDATA/nvim/config-plug/gtags.vim
