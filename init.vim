@@ -37,6 +37,7 @@ Plug 'tpope/vim-surround'
 Plug 'wellle/targets.vim'
 Plug 'tpope/vim-repeat'
 Plug 'machakann/vim-highlightedyank'
+Plug 'inside/vim-search-pulse'
 Plug 'bkad/CamelCaseMotion'
 " Plug 'sillybun/vim-repl'
 
@@ -193,6 +194,7 @@ source $LOCALAPPDATA/nvim/config-plug/vim-sneak.vim
 source $LOCALAPPDATA/nvim/config-plug/vim-commentary.vim
 " source $LOCALAPPDATA/nvim/config-plug/vim-extended-surround-block-element.vim
 source $LOCALAPPDATA/nvim/config-plug/vim-highlightedyank.vim
+source $LOCALAPPDATA/nvim/config-plug/search-pulse.vim
 " source $LOCALAPPDATA/nvim/config-plug/vimade.vim
 source $LOCALAPPDATA/nvim/config-plug/nerdtree.vim
 " source $LOCALAPPDATA/nvim/config-plug/ctrlp.vim
