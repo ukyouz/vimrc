@@ -218,6 +218,7 @@ source $LOCALAPPDATA/nvim/config-plug/vim-preview.vim
 source $LOCALAPPDATA/nvim/config-plug/leaderf.vim
 " source $LOCALAPPDATA/nvim/config-plug/cctree.vim
 source $LOCALAPPDATA/nvim/config-plug/treesitter.vim
+source $LOCALAPPDATA/nvim/config-plug/tagbar.vim
 " source $LOCALAPPDATA/nvim/config-plug/gen_tags.vim
 " source $LOCALAPPDATA/nvim/config-plug/session.vim
 source $LOCALAPPDATA/nvim/config-plug/vim-grep.vim
