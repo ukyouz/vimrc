@@ -62,7 +62,7 @@ Plug 'ukyouz/onedark.vim'
 " Plug 'lifepillar/vim-solarized8'
 
 ""completion
-" Plug 'neoclide/coc.nvim' ", {'branch': 'release'}
+" Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 " Plug 'Shougo/deoplete.nvim' | Plug 'Shougo/deoplete-clangx', {'for': ['c', 'cpp']}
 " Plug 'Shougo/deoplete.nvim' | Plug 'deoplete-plugins/deoplete-jedi', {'for': ['py', 'pyw']}
@@ -70,7 +70,10 @@ Plug 'ukyouz/onedark.vim'
 " Plug 'Shougo/deoplete.nvim' | Plug 'Shougo/neoinclude.vim', {'for': ['c', 'cpp', 'h']}
 " Plug 'hari-rangarajan/CCTree', {'for': ['c', 'cpp']}
 Plug 'neovim/nvim-lspconfig'
-Plug 'nvim-lua/completion-nvim'
+Plug 'hrsh7th/nvim-cmp'
+Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'ray-x/lsp_signature.nvim'
+" Plug 'nvim-lua/completion-nvim'
 
 " Git Enhance
 Plug 'airblade/vim-gitgutter', Cond(!exists('g:vscode'))

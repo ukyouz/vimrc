@@ -8,7 +8,7 @@ call deoplete#custom#option('auto_complete', v:true)
 call deoplete#custom#option('auto_complete_delay', 0)
 call deoplete#custom#option('sources', {
 	\ '_': ['file', 'buffer'],
-	\ 'python': ['jedi', 'tag', 'file'],
+	\ 'python': ['jedi_language_server', 'tag', 'file'],
 	\ 'c': ['clangx', 'tag', 'buffer', 'file'],
 	\ 'cpp': ['clangx', 'tag', 'buffer', 'file'],
 \})
@@ -26,7 +26,7 @@ endfunction
 " inoremap <silent><expr> <CR> pumvisible() ?  deoplete#close_popup() : "\<CR>"
 
 "deoplete-clangx
-call deoplete#custom#var('clangx', 'clang_binary', expand('D:/Applications/Neovim/bin/clang.exe'))
+" call deoplete#custom#var('clangx', 'clang_binary', expand('D:/applications/Neovim/bin/clang.exe'))
 call deoplete#custom#var('clangx', 'default_c_options', '')
 call deoplete#custom#var('clangx', 'default_cpp_options', '')
 
