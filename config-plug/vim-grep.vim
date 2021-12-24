@@ -12,13 +12,22 @@ function! GrepOperator(type)
     else
         return
     endif
-    silent execute "grep! -F -s -w -e ".shellescape(@@)
+    " refer to rg --help
+    silent execute "grep! --fixed-strings --case-sensitive --word-regexp --regexp ".shellescape(@@)
     copen
 endfunction
+
+augroup myvimrc
+    " open quickfix windows automatically after grep, lgrep, make, etc commands
+    autocmd!
+    autocmd QuickFixCmdPost [^l]* cwindow
+    autocmd QuickFixCmdPost l*    lwindow
+augroup END
 
 augroup grep_quick_fix_keymap
     autocmd!
     autocmd! FileType qf nnoremap <silent> <buffer> q :q<CR>
+    autocmd! FileType qf nnoremap <silent> <buffer> <Esc> :q<CR>
 augroup END
 
 set grepprg=rg\ --vimgrep

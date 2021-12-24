@@ -87,17 +87,25 @@ let g:lightline={
   \ 'colorscheme': 'one',
   \ 'active': {
   \   'left': [ [ 'mode', 'paste' ],
-  \             [ 'readonly', 'filename', 'tagbar' ] ],
+  \             [ 'readonly', 'filename',
+  "\               'tagbar'
+  \             ]
+  \           ],
   \   'right': [ [ 'lineinfo' ],
-  \              [ 'fileformat', 'fileencoding', 'filetype' ],
-  \              [ 'gitbranch' ] ]
+   \              [
+   "\                'fileformat',
+   "\                'fileencoding',
+   \                'filetype'
+   \               ],
+  "\              [ 'gitbranch' ]
+   \]
   \ },
   \ 'component_function': {
-  \   'mode': 'LightlineMode',
+  "\   'mode': 'LightlineMode',
   \   'filename': 'LightlineFilename',
-  \   'gitbranch': 'FugitiveHead',
+  "\   'gitbranch': 'FugitiveHead',
   "\   'gitbranch': 'gitbranch#name',
-  \   'tagbar': 'LightlineTagBar',
+  "\   'tagbar': 'lightline_tagbar#component',
   \ },
   \ }
 function! LightlineMode()
@@ -116,15 +124,12 @@ function! LightlineFilename()
     let modified = &modified ? ' +' : ''
     return filename . modified
 endfunction
-function! LightlineTagBar()
-    let filename = @%
-    let tag = filename !=# '' ? lightline_tagbar#component() : ''
-    return tag
-endfunction
+nnoremap <silent><F3> :echo lightline_tagbar#component()<cr>
+inoremap <silent><F3> <c-\><c-o>:echo lightline_tagbar#component()<cr>
 
 " go current tag
 function! CurrentTagSearch()
-    let curr_tags = split(LightlineTagBar(), '(')
+    let curr_tags = split(lightline_tagbar#component(), '(')
     if len(curr_tags) ==# 0
         echo "No tag found."
         return
