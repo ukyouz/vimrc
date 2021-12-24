@@ -85,10 +85,10 @@ Plug 'nvim-treesitter/nvim-treesitter'
 Plug 'nvim-treesitter/nvim-treesitter-textobjects'
 Plug 'nvim-treesitter/nvim-treesitter-refactor'
 " Plug 'romgrk/nvim-treesitter-context'
-Plug 'folke/twilight.nvim'
+" Plug 'folke/twilight.nvim'
 Plug 'nvim-treesitter/playground', Cond(!exists('g:vscode'))
 " Plug 'lukas-reineke/indent-blankline.nvim'
-Plug 'vim-python/python-syntax', {'for': ['python', 'py', 'pyw']}
+" Plug 'vim-python/python-syntax', {'for': ['python', 'py', 'pyw']}
 " Plug 'octol/vim-cpp-enhanced-highlight', {'for': ['c']}
 " Plug 'jackguo380/vim-lsp-cxx-highlight', {'for': ['c', 'cpp', 'h']}
 " Plug 'luochen1990/rainbow'
@@ -96,7 +96,7 @@ Plug 'vim-python/python-syntax', {'for': ['python', 'py', 'pyw']}
 call plug#end()
 
 let mapleader=" "
-map ; :
+" map ; :
 " imap kj <Esc>
 " imap jk <Esc>
 nnoremap <silent> <F5> :e!<CR>
@@ -130,7 +130,7 @@ nnoremap <silent> <C-.> :resize +3<CR>
 nnoremap <silent> <C-,> :resize -3<CR>
 " nnoremap <silent> <C-0> <C-w>=
 " Toggle serch highlight
-nnoremap <silent> <F3> :noh<CR>
+nnoremap <silent> <C-;> :noh<CR>
 nnoremap <silent> <F12> <C-]>zt
 
 inoremap <C-s> <Esc>:w<CR>a
@@ -222,7 +222,7 @@ source $LOCALAPPDATA/nvim/config-plug/treesitter.vim
 source $LOCALAPPDATA/nvim/config-plug/vim-grep.vim
 source $LOCALAPPDATA/nvim/config-plug/CamelCaseMotion.vim
 
-source $LOCALAPPDATA/nvim/config-plug/python-syntax.vim
+" source $LOCALAPPDATA/nvim/config-plug/python-syntax.vim
 if exists('g:vscode')
 set termguicolors
 else

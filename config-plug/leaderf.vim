@@ -28,7 +28,7 @@ let g:Lf_ReverseOrder = 1
 let g:Lf_ShowDevIcons = 0
 " let g:Lf_DevIconsFont = 'Fira Mono for Powerline'
 let g:Lf_ShowRelativePath = 1
-" let g:Lf_DefaultMode = 'NameOnly'
+let g:Lf_DefaultMode = 'NameOnly'
 let g:Lf_NeedCacheTime = 1
 " let g:Lf_Gtagsconf = $GTAGSCONF
 
@@ -99,8 +99,8 @@ nnoremap <leader>lr :<C-U><C-R>=printf("Leaderf! gtags -r %s --auto-jump", expan
 nnoremap <leader>ld :<C-U><C-R>=printf("Leaderf! gtags -d %s --auto-jump", expand("<cword>"))<CR><CR>
 " nnoremap <C-]>      :<C-U><C-R>=printf("Leaderf! gtags -d %s --auto-jump", expand("<cword>"))<CR><CR>
 nnoremap <leader>lu :<C-U><C-R>=printf("Leaderf! gtags --recall %s", "")<CR><CR>
-" nnoremap <F4>       :<C-U><C-R>=printf("Leaderf gtags --next %s", "")<CR><CR>
-" nnoremap <S-F4>     :<C-U><C-R>=printf("Leaderf gtags --previous %s", "")<CR><CR>
+nnoremap <F4>       :<C-U><C-R>=printf("Leaderf gtags --next %s", "")<CR><CR>
+nnoremap <S-F4>     :<C-U><C-R>=printf("Leaderf gtags --previous %s", "")<CR><CR>
 
 nnoremap \ :LeaderfRgInteractive<CR>
 
