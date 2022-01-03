@@ -12,7 +12,7 @@ let g:Lf_PreviewInPopup = 1
 let g:Lf_PreviewCode = 1
 let g:Lf_PreviewWidth = 0
 let g:Lf_PreviewHeight = 0
-let g:Lf_PreviewResult = { 'BufTag': 0, 'Function': 1, 'Colorscheme': 1 }
+let g:Lf_PreviewResult = { 'BufTag': 0, 'Function': 0, 'Colorscheme': 1 }
 let g:Lf_StlColorscheme = 'one'
 let g:Lf_StlSeparator = { 'left': '', 'right': '' }
 let g:Lf_DisableStl = 0
@@ -35,9 +35,8 @@ let g:Lf_NeedCacheTime = 1
 let g:Lf_CacheDirectory = expand('~')
 let g:gutentags_cache_dir = expand(g:Lf_CacheDirectory.'/.LfCache/gtags')
 let g:Lf_CtagsFuncOpts = {
-  \ 'c': '-languages=-JavaScript --languages=-Tcl --if0=yes --excmd=number --fields=+nS',
-  \ 'python': '--langmap=Python:.py.pyw --languages=-JavaScript --languages=-Tcl --if0=yes --excmd=number --fields=+nS',
-  \}
+   \ 'python': '--langmap=Python:.py.pyw',
+\}
 let g:Lf_GtagsGutentags = 1
 let g:Lf_GtagsAutoGenerate = 0
 let g:Lf_GtagsAutoUpdate = 0
@@ -76,6 +75,8 @@ nnoremap <leader>p :LeaderfFile<CR>
 " noremap <leader>fb :<C-U><C-R>=printf("Leaderf buffer %s", "")<CR><CR>
 " noremap <leader>fm :<C-U><C-R>=printf("Leaderf mru %s", "")<CR><CR>
 nnoremap <leader>bt :<C-U><C-R>=printf("Leaderf bufTag %s", "")<CR><CR>
+nnoremap <leader>bf :LeaderfFunction<CR>
+nnoremap <leader>gt :LeaderfFunction!<CR>
 nnoremap <leader>ll :<C-U><C-R>=printf("Leaderf line %s", "")<CR><CR>
 
 " noremap <Leader>r :Leaderf rg<CR>
@@ -95,12 +96,13 @@ noremap <S-F4>    :<C-U>Leaderf! rg --prev<CR>
 " should use `Leaderf gtags --update` first
 let g:Lf_Gtagslabel = 'native-pygments'
 nnoremap <leader>t :Leaderf gtags<CR>
+nnoremap <leader>lt :LeaderfTag<CR>
 nnoremap <leader>lr :<C-U><C-R>=printf("Leaderf! gtags -r %s --auto-jump", expand("<cword>"))<CR><CR>
 nnoremap <leader>ld :<C-U><C-R>=printf("Leaderf! gtags -d %s --auto-jump", expand("<cword>"))<CR><CR>
 " nnoremap <C-]>      :<C-U><C-R>=printf("Leaderf! gtags -d %s --auto-jump", expand("<cword>"))<CR><CR>
 nnoremap <leader>lu :<C-U><C-R>=printf("Leaderf! gtags --recall %s", "")<CR><CR>
-nnoremap <F4>       :<C-U><C-R>=printf("Leaderf gtags --next %s", "")<CR><CR>
-nnoremap <S-F4>     :<C-U><C-R>=printf("Leaderf gtags --previous %s", "")<CR><CR>
+" nnoremap <F4>       :<C-U><C-R>=printf("Leaderf gtags --next %s", "")<CR><CR>
+" nnoremap <S-F4>     :<C-U><C-R>=printf("Leaderf gtags --previous %s", "")<CR><CR>
 
-nnoremap \ :LeaderfRgInteractive<CR>
+nnoremap <silent> <leader>\ :LeaderfRgInteractive<CR>
 
