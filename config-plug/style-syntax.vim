@@ -97,14 +97,13 @@ let g:lightline={
    "\                'fileencoding',
    \                'filetype'
    \               ],
-  "\              [ 'gitbranch' ]
+  \              [ 'gitbranch' ]
    \]
   \ },
   \ 'component_function': {
   "\   'mode': 'LightlineMode',
   \   'filename': 'LightlineFilename',
-  "\   'gitbranch': 'FugitiveHead',
-  "\   'gitbranch': 'gitbranch#name',
+  \   'gitbranch': 'FugitiveHead',
   "\   'tagbar': 'lightline_tagbar#component',
   \ },
   \ }
