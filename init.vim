@@ -103,6 +103,9 @@ nnoremap <silent> <F5> :e!<CR>
 " lazy macro repeat
 nnoremap <silent> <a-,> @@
 
+""Keep cursor position for search and highlight
+nnoremap * :keepjumps normal! *N<CR>
+nnoremap # :keepjumps normal! #N<CR>
 ""Search for selected text, forwards or backwards.
 vnoremap <silent> * :<C-U>
   \let old_reg=getreg('"')<Bar>let old_regtype=getregtype('"')<CR>
