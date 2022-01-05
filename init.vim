@@ -15,14 +15,15 @@ endfunction
 " Plugin outside ~/.vim/plugged with post-update hook
 " NVIM Enhance
 
-Plug 'junegunn/fzf' ", { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf' | Plug 'junegunn/fzf.vim'
+" Plug 'junegunn/fzf' ", { 'dir': '~/.fzf', 'do': './install --all' }
+" Plug 'junegunn/fzf' | Plug 'junegunn/fzf.vim'
 Plug 'itchyny/lightline.vim'
 " Plug 'vim-airline/vim-airline' | Plug 'vim-airline/vim-airline-themes'
 " Plug 'TaDaa/vimade'
 Plug 'scrooloose/nerdtree', Cond(!exists('g:vscode'))
 " Plug 'chazy/cscope_maps'
 Plug 'Yggdroot/LeaderF' ", { 'do': './install.sh' }
+Plug 'ukyouz/LeaderF-git'
 Plug 'kshenoy/vim-signature'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'skywind3000/vim-preview'
@@ -191,7 +192,7 @@ source $LOCALAPPDATA/nvim/config-plug/vim-highlightedyank.vim
 source $LOCALAPPDATA/nvim/config-plug/search-pulse.vim
 " source $LOCALAPPDATA/nvim/config-plug/vimade.vim
 " source $LOCALAPPDATA/nvim/config-plug/ctrlp.vim
-source $LOCALAPPDATA/nvim/config-plug/fzf.vim
+" source $LOCALAPPDATA/nvim/config-plug/fzf.vim
 " source $LOCALAPPDATA/nvim/config-plug/coc.vim
 source $LOCALAPPDATA/nvim/config-plug/lspconfig.vim
 " source $LOCALAPPDATA/nvim/config-plug/deoplete.vim
@@ -199,6 +200,7 @@ source $LOCALAPPDATA/nvim/config-plug/gtags.vim
 " source $LOCALAPPDATA/nvim/cconfig-plug/denite.vim
 source $LOCALAPPDATA/nvim/config-plug/vim-preview.vim
 source $LOCALAPPDATA/nvim/config-plug/leaderf.vim
+source $LOCALAPPDATA/nvim/config-plug/leaderf-git.vim
 " source $LOCALAPPDATA/nvim/config-plug/cctree.vim
 source $LOCALAPPDATA/nvim/config-plug/treesitter.vim
 " source $LOCALAPPDATA/nvim/config-plug/gen_tags.vim
