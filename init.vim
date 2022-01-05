@@ -141,21 +141,6 @@ vnoremap <silent> <C-c> "*y
 " nnoremap <silent> <C-\> :vsplit<CR>
 " nnoremap <silent> <C-/> :split<CR>
 
-" Terminal
-" open termianl on the 80px-width vertical split
-"nnoremap <silent> <C-`> :80vs \| terminal<CR>
-" open ipython on the 10px-height horizontal split
-" nnoremap <silent> <M-`> :10sp \| terminal<CR>ipython<CR>
-if has("nvim")
-augroup fzfesc
-    autocmd!
-    autocmd TermOpen * startinsert
-    " only apply setting to cmd terminal
-    autocmd TermOpen,TermEnter  term://.//*cmd* tnoremap <Esc> <C-\><C-n>
-    autocmd TermLeave,TermClose term://.//*cmd* tunmap <Esc>
-augroup END
-endif
-
 " show linenumber cursorline highlightsearch nowrap
 set shortmess+=at
 set number cursorline hlsearch incsearch nowrap
@@ -220,6 +205,7 @@ source $LOCALAPPDATA/nvim/config-plug/treesitter.vim
 " source $LOCALAPPDATA/nvim/config-plug/session.vim
 source $LOCALAPPDATA/nvim/config-plug/vim-grep.vim
 source $LOCALAPPDATA/nvim/config-plug/CamelCaseMotion.vim
+source $LOCALAPPDATA/nvim/config-plug/terminal.vim
 
 " source $LOCALAPPDATA/nvim/config-plug/python-syntax.vim
 if exists('g:vscode')
