@@ -17,7 +17,8 @@ endfunction
 
 " Plug 'junegunn/fzf' ", { 'dir': '~/.fzf', 'do': './install --all' }
 " Plug 'junegunn/fzf' | Plug 'junegunn/fzf.vim'
-Plug 'itchyny/lightline.vim'
+" Plug 'itchyny/lightline.vim'
+Plug 'vim-airline/vim-airline'
 " Plug 'vim-airline/vim-airline' | Plug 'vim-airline/vim-airline-themes'
 " Plug 'TaDaa/vimade'
 Plug 'scrooloose/nerdtree', Cond(!exists('g:vscode'))

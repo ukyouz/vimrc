@@ -97,13 +97,13 @@ let g:lightline={
    "\                'fileencoding',
    \                'filetype'
    \               ],
-  \              [ 'gitbranch' ]
+  "\              [ 'gitbranch' ]
    \]
   \ },
   \ 'component_function': {
   "\   'mode': 'LightlineMode',
   \   'filename': 'LightlineFilename',
-  \   'gitbranch': 'FugitiveHead',
+  "\   'gitbranch': 'FugitiveHead',
   "\   'tagbar': 'lightline_tagbar#component',
   \ },
   \ }
@@ -184,8 +184,19 @@ let g:rainbow_conf = {
 
 
 " airline config
-let g:airline_theme='base16'
+let g:airline_theme='onedark'
 let g:airline#extensions#tabline#enabled = 0
+let g:airline_highlighting_cache = 1
+let g:airline#extensions#hunks#enabled = 0
+let g:airline_left_sep = ''
+" let g:airline_skip_empty_sections = 1
+if !exists('g:airline_symbols')
+  let g:airline_symbols = {}
+endif
+let g:airline_section_z = '' " current position in the file
+let g:airline_symbols.maxlinenr = ''
+let g:airline_symbols.linenr = ' '
+let g:airline_symbols.colnr = ':'
 
 
 " cpp-enhanced-highlight config
