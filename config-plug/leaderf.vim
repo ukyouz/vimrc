@@ -6,15 +6,31 @@ let g:Lf_UseCache = 1
 let g:Lf_UseVersionControlTool = 0
 let g:Lf_IgnoreCurrentBufferName = 0
 " popup mode
-let g:Lf_WindowPosition = 'bottom'
+let g:Lf_WindowPosition = 'popup'
 let g:Lf_WindowHeight = 0.33
+let g:Lf_PopupHeight = 0.33
+let g:Lf_PopupWidth = 0.8
+let g:Lf_PopupPosition = [1, 0]
+let g:Lf_PopupPreviewPosition = 'bottom'
 let g:Lf_PreviewInPopup = 1
 let g:Lf_PreviewCode = 1
 let g:Lf_PreviewWidth = 0
 let g:Lf_PreviewHeight = 0
-let g:Lf_PreviewResult = { 'BufTag': 0, 'Function': 0, 'Colorscheme': 1 }
+let g:Lf_PreviewResult = {
+    \ 'File': 0,
+    \ 'Buffer': 0,
+    \ 'Mru': 1,
+    \ 'Tag': 1,
+    \ 'BufTag': 1,
+    \ 'Function': 1,
+    \ 'Line': 0,
+    \ 'Colorscheme': 1,
+    \ 'Rg': 0,
+    \ 'Gtags': 1,
+\}
 let g:Lf_StlColorscheme = 'one'
 let g:Lf_StlSeparator = { 'left': '', 'right': '' }
+let g:Lf_StlSeparator = { 'left': '', 'right': '' }
 let g:Lf_DisableStl = 0
 let g:Lf_DefaultExternalTool = 'rg'
 let g:Lf_RgHighlightInPreview = 1
@@ -70,39 +86,39 @@ let g:Lf_NormalMap = {
 \}
 
 let g:Lf_ShortcutF = "<leader>ff"
-nnoremap <leader>b :LeaderfBuffer<CR><Tab>
-nnoremap <leader>p :LeaderfFile<CR>
+nnoremap <silent> <leader>l  :LeaderfSelf<CR>
+nnoremap <silent> <leader>lb :LeaderfBuffer<CR><Tab>
+nnoremap <silent> <leader>p :LeaderfFile<CR>
 " noremap <leader>fb :<C-U><C-R>=printf("Leaderf buffer %s", "")<CR><CR>
 " noremap <leader>fm :<C-U><C-R>=printf("Leaderf mru %s", "")<CR><CR>
-nnoremap <leader>bt :<C-U><C-R>=printf("Leaderf bufTag %s", "")<CR><CR>
-nnoremap <leader>bf :LeaderfFunction<CR>
-nnoremap <leader>gt :LeaderfFunction!<CR>
-nnoremap <leader>ll :<C-U><C-R>=printf("Leaderf line %s", "")<CR><CR>
+nnoremap <silent> <leader>bt :<C-U><C-R>=printf("Leaderf bufTag %s", "")<CR><CR>
+nnoremap <silent> <leader>bf :LeaderfFunction<CR>
+nnoremap <silent> <leader>gt :LeaderfFunction!<CR>
+nnoremap <silent> <leader>ll :<C-U><C-R>=printf("Leaderf line %s", "")<CR><CR>
 
-" noremap <Leader>r :Leaderf rg<CR>
-nnoremap <Leader>lf :Leaderf rg<CR>
-" nnoremap <Leader>lb :Leaderf rg --current-buffer<CR>
+nnoremap <silent> <Leader>lf :Leaderf rg<CR>
+" nnoremap <silent> <Leader>lb :Leaderf rg --current-buffer<CR>
 " noremap <Leader>f :<C-U><C-R>=printf("Leaderf! rg --current-buffer -e %s ", expand("<cword>"))<CR><CR>
-nnoremap <Leader>j :<C-U><C-R>=printf("Leaderf! rg -e %s ", expand("<cword>"))<CR><CR>
-nnoremap <Leader>k :<C-U><C-R>=printf("Leaderf! rg -s -w -e %s ", expand("<cword>"))<CR><CR>
+nnoremap <silent> <Leader>j :<C-U><C-R>=printf("Leaderf! rg -e %s ", expand("<cword>"))<CR><CR>
+nnoremap <silent> <Leader>k :<C-U><C-R>=printf("Leaderf! rg -s -w -e %s ", expand("<cword>"))<CR><CR>
 " search visually selected text literally
-xnoremap <Leader>j :<C-U><C-R>=printf("Leaderf! rg -e %s ", leaderf#Rg#visual())<CR><CR>
-xnoremap <Leader>k :<C-U><C-R>=printf("Leaderf! rg -s -w -e %s ", leaderf#Rg#visual())<CR><CR>
+xnoremap <silent> <Leader>j :<C-U><C-R>=printf("Leaderf! rg -e %s ", leaderf#Rg#visual())<CR><CR>
+xnoremap <silent> <Leader>k :<C-U><C-R>=printf("Leaderf! rg -s -w -e %s ", leaderf#Rg#visual())<CR><CR>
 " restore latest search
-nnoremap <Leader>u :<C-U>Leaderf! rg --recall<CR>
-noremap <F4>      :<C-U>Leaderf! rg --next<CR>
-noremap <S-F4>    :<C-U>Leaderf! rg --prev<CR>
+nnoremap <silent> <Leader>u :<C-U>Leaderf! rg --recall<CR>
+noremap <silent> <F4>      :<C-U>Leaderf! rg --next<CR>
+noremap <silent> <S-F4>    :<C-U>Leaderf! rg --prev<CR>
 
 " should use `Leaderf gtags --update` first
 let g:Lf_Gtagslabel = 'native-pygments'
-nnoremap <leader>t :Leaderf gtags<CR>
-nnoremap <leader>lt :LeaderfTag<CR>
-nnoremap <leader>lr :<C-U><C-R>=printf("Leaderf! gtags -r %s --auto-jump", expand("<cword>"))<CR><CR>
-nnoremap <leader>ld :<C-U><C-R>=printf("Leaderf! gtags -d %s --auto-jump", expand("<cword>"))<CR><CR>
-" nnoremap <C-]>      :<C-U><C-R>=printf("Leaderf! gtags -d %s --auto-jump", expand("<cword>"))<CR><CR>
-nnoremap <leader>lu :<C-U><C-R>=printf("Leaderf! gtags --recall %s", "")<CR><CR>
-" nnoremap <F4>       :<C-U><C-R>=printf("Leaderf gtags --next %s", "")<CR><CR>
-" nnoremap <S-F4>     :<C-U><C-R>=printf("Leaderf gtags --previous %s", "")<CR><CR>
+nnoremap <silent> <leader>t :Leaderf gtags<CR>
+nnoremap <silent> <leader>lt :LeaderfTag<CR>
+nnoremap <silent> <leader>lr :<C-U><C-R>=printf("Leaderf! gtags -r %s --auto-jump", expand("<cword>"))<CR><CR>
+nnoremap <silent> <leader>ld :<C-U><C-R>=printf("Leaderf! gtags -d %s --auto-jump", expand("<cword>"))<CR><CR>
+" nnoremap <silent> <C-]>      :<C-U><C-R>=printf("Leaderf! gtags -d %s --auto-jump", expand("<cword>"))<CR><CR>
+nnoremap <silent> <leader>lu :<C-U><C-R>=printf("Leaderf! gtags --recall %s", "")<CR><CR>
+" nnoremap <silent> <F4>       :<C-U><C-R>=printf("Leaderf gtags --next %s", "")<CR><CR>
+" nnoremap <silent> <S-F4>     :<C-U><C-R>=printf("Leaderf gtags --previous %s", "")<CR><CR>
 
 nnoremap <silent> <leader>\ :LeaderfRgInteractive<CR>
 
