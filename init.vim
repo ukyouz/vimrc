@@ -19,6 +19,7 @@ endfunction
 " Plug 'junegunn/fzf' | Plug 'junegunn/fzf.vim'
 " Plug 'itchyny/lightline.vim'
 Plug 'vim-airline/vim-airline'
+Plug 'preservim/tagbar' | Plug 'mkalinski/vim-lightline_tagbar'
 " Plug 'vim-airline/vim-airline' | Plug 'vim-airline/vim-airline-themes'
 " Plug 'TaDaa/vimade'
 Plug 'scrooloose/nerdtree', Cond(!exists('g:vscode'))
@@ -207,6 +208,7 @@ source $LOCALAPPDATA/nvim/config-plug/leaderf.vim
 source $LOCALAPPDATA/nvim/config-plug/leaderf-git.vim
 " source $LOCALAPPDATA/nvim/config-plug/cctree.vim
 source $LOCALAPPDATA/nvim/config-plug/treesitter.vim
+source $LOCALAPPDATA/nvim/config-plug/tagbar.vim
 " source $LOCALAPPDATA/nvim/config-plug/gen_tags.vim
 " source $LOCALAPPDATA/nvim/config-plug/session.vim
 source $LOCALAPPDATA/nvim/config-plug/vim-grep.vim
