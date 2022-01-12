@@ -120,6 +120,29 @@ vnoremap <silent> # :<C-U>
   \escape(@", '?\.*$^~['), '\_s\+', '\\_s\\+', 'g')<CR><CR>
   \gV:call setreg('"', old_reg, old_regtype)<CR>
 
+function! SaveJump(motion)
+  if exists('#SaveJump#CursorMoved')
+    autocmd! SaveJump
+  else
+    normal! m'
+  endif
+  let m = a:motion
+  if v:count
+    let m = v:count.m
+  endif
+  execute 'normal!' m
+endfunction
+
+function! SetJump()
+  augroup SaveJump
+    autocmd!
+    autocmd CursorMoved * autocmd! SaveJump
+  augroup END
+endfunction
+" Save the first <C-u>/<C-d> location to jumplist
+nnoremap <silent> <C-u> :<C-u>call SaveJump("\<lt>C-u>")<CR>:call SetJump()<CR>
+nnoremap <silent> <C-d> :<C-u>call SaveJump("\<lt>C-d>")<CR>:call SetJump()<CR>
+
 " Reload vimr configuration file
 nnoremap <Leader>vr :source $MYVIMRC<CR>
 
