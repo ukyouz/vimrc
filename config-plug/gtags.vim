@@ -27,13 +27,15 @@ let g:gutentags_ctags_extra_args = ['--langmap=Python:.py.pyw']
 let g:gutentags_ctags_extra_args+= ['--languages=-JavaScript', '--languages=-Tcl']
 let g:gutentags_ctags_extra_args+= ['--if0=yes', '--excmd=number']
 let g:gutentags_ctags_extra_args+= ['--fields=+nS']
-let g:gutentags_ctags_extra_args+= ['--exclude=@.gitignore']
+" let g:gutentags_ctags_extra_args+= ['--exclude=@.gitignore']
 " let g:gutentags_ctags_extra_args += ['--c++-kinds=+pxI']
 " let g:gutentags_ctags_extra_args += ['--c-kinds=+px']
 " change focus to quickfix window after search (optional).
 let g:gutentags_plus_switch = 1
 let g:gutentags_define_advanced_commands = 1
 let g:gutentags_plus_nomap = 1
+
+nnoremap <S-F5> :GutentagsUpdate!<CR>
 
 " cscope
 if has("cscope")
