@@ -26,7 +26,7 @@ Plug 'scrooloose/nerdtree', Cond(!exists('g:vscode'))
 " Plug 'chazy/cscope_maps'
 Plug 'Yggdroot/LeaderF' ", { 'do': './install.sh' }
 Plug 'ukyouz/LeaderF-git'
-Plug 'kshenoy/vim-signature'
+" Plug 'kshenoy/vim-signature'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'skywind3000/vim-preview'
 " Plug 'skywind3000/gutentags_plus'
