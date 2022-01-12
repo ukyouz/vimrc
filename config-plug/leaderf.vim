@@ -20,13 +20,13 @@ let g:Lf_PreviewResult = {
     \ 'File': 0,
     \ 'Buffer': 0,
     \ 'Mru': 1,
-    \ 'Tag': 1,
+    \ 'Tag': 0,
     \ 'BufTag': 1,
     \ 'Function': 1,
-    \ 'Line': 0,
+    \ 'Line': 1,
     \ 'Colorscheme': 1,
     \ 'Rg': 0,
-    \ 'Gtags': 1,
+    \ 'Gtags': 0,
 \}
 let g:Lf_StlColorscheme = 'one'
 let g:Lf_StlSeparator = { 'left': '', 'right': '' }
@@ -93,7 +93,7 @@ nnoremap <silent> <leader>p :LeaderfFile<CR>
 " noremap <leader>fm :<C-U><C-R>=printf("Leaderf mru %s", "")<CR><CR>
 nnoremap <silent> <leader>bt :<C-U><C-R>=printf("Leaderf bufTag %s", "")<CR><CR>
 nnoremap <silent> <leader>bf :LeaderfFunction<CR>
-nnoremap <silent> <leader>gt :LeaderfFunction!<CR>
+" nnoremap <silent> <leader>gt :LeaderfFunction!<CR>
 nnoremap <silent> <leader>ll :<C-U><C-R>=printf("Leaderf line %s", "")<CR><CR>
 
 nnoremap <silent> <Leader>lf :Leaderf rg<CR>
@@ -113,6 +113,7 @@ noremap <silent> <S-F4>    :<C-U>Leaderf! rg --prev<CR>
 let g:Lf_Gtagslabel = 'native-pygments'
 nnoremap <silent> <leader>t :Leaderf gtags<CR>
 nnoremap <silent> <leader>lt :LeaderfTag<CR>
+nnoremap <silent> <S-F12>    :<C-U><C-R>=printf("Leaderf! gtags -r %s --auto-jump", expand("<cword>"))<CR><CR>
 nnoremap <silent> <leader>lr :<C-U><C-R>=printf("Leaderf! gtags -r %s --auto-jump", expand("<cword>"))<CR><CR>
 nnoremap <silent> <leader>ld :<C-U><C-R>=printf("Leaderf! gtags -d %s --auto-jump", expand("<cword>"))<CR><CR>
 " nnoremap <silent> <C-]>      :<C-U><C-R>=printf("Leaderf! gtags -d %s --auto-jump", expand("<cword>"))<CR><CR>
