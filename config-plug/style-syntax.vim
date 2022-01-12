@@ -152,7 +152,7 @@ function! CurrentTagSearch()
     call search(l:search_term, 'cb')
     call search(l:tag, 'c', line('.'))
 endfunction
-" nnoremap <silent> <Leader>gt :call CurrentTagSearch()<CR>
+nnoremap <silent> <Leader>gt :call CurrentTagSearch()<CR>
 
 " rainbow
 let g:rainbow_active = 1
