@@ -47,6 +47,7 @@ Plug 'machakann/vim-highlightedyank'
 Plug 'inside/vim-search-pulse'
 Plug 'bkad/CamelCaseMotion'
 Plug 'mg979/vim-visual-multi', {'branch': 'master'}
+Plug 'tpope/vim-unimpaired'
 " Plug 'sillybun/vim-repl'
 
 " Plug 'christoomey/vim-system-copy'
