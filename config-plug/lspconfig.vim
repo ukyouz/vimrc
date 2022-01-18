@@ -3,11 +3,12 @@ require'lspconfig'.jedi_language_server.setup{}
 require'lspconfig'.clangd.setup{}
 ---require'lspconfig'.clangd.setup{on_attach=require'completion'.on_attach}
 require'lsp_signature'.setup({
-    floating_window=true,
+    floating_window=false,
     floating_window_above_cur_line=false,
     always_trigger=false,
-    hint_enable=false,
+    hint_enable=true,
     hint_prefix='💡 ',
+    toggle_key='<M-x>',
 })
 EOF
 
