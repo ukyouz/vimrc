@@ -93,7 +93,7 @@ nnoremap <silent> <leader>p :LeaderfFile<CR>
 " noremap <leader>fm :<C-U><C-R>=printf("Leaderf mru %s", "")<CR><CR>
 nnoremap <silent> <leader>bt :<C-U><C-R>=printf("Leaderf bufTag %s", "")<CR><CR>
 nnoremap <silent> <leader>bf :LeaderfFunction<CR>
-" nnoremap <silent> <leader>gt :LeaderfFunction!<CR>
+nnoremap <silent> <leader>gt :LeaderfFunction!<CR>
 nnoremap <silent> <leader>ll :<C-U><C-R>=printf("Leaderf line %s", "")<CR><CR>
 
 nnoremap <silent> <Leader>lf :Leaderf rg<CR>

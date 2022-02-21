@@ -57,3 +57,12 @@ require'nvim-treesitter.configs'.setup {
   },
 }
 EOF
+
+" go current tag
+function! CurrentTagSearch()
+    execute "normal [f"
+    call search('(', 'c', line('.'))
+    execute "normal B"
+endfunction
+nnoremap <silent> <Leader>gt :call CurrentTagSearch()<CR>
+
