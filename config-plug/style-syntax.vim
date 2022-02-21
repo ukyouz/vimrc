@@ -195,8 +195,8 @@ let g:airline_left_sep = ''
 if !exists('g:airline_symbols')
   let g:airline_symbols = {}
 endif
-let g:airline_section_c = '%<%<%{airline#extensions#fugitiveline#bufname()}%m %#__accent_red#%{airline#util#wrap(airline#parts#readonly(),0)}%#__restore__#%#__accent_bold#%#__restore__#%#__accent_bold#%#__restore__#%#__accent_red#%{airline#util#prepend(airline#extensions#tagbar#currenttag(),0)}%#__restore__#' " add tag after filename
-let g:airline_section_x = '%#__accent_bold#%#__restore__#%{airline#util#prepend("",0)}%{airline#util#prepend(airline#extensions#gutentags#status(),0)}%{airline#util#prepend("",0)}%{airline#util#prepend("",0)}%{airline#util#prepend("",0)}' " remove filetype section, and move tag to section_c
+" let g:airline_section_c = '%<%<%{airline#extensions#fugitiveline#bufname()}%m %#__accent_red#%{airline#util#wrap(airline#parts#readonly(),0)}%#__restore__#%#__accent_bold#%#__restore__#%#__accent_bold#%#__restore__#%#__accent_red#%{airline#util#prepend(airline#extensions#tagbar#currenttag(),0)}%#__restore__#' " add tag after filename
+" let g:airline_section_x = '%#__accent_bold#%#__restore__#%{airline#util#prepend("",0)}%{airline#util#prepend(airline#extensions#gutentags#status(),0)}%{airline#util#prepend("",0)}%{airline#util#prepend("",0)}%{airline#util#prepend("",0)}' " remove filetype section, and move tag to section_c
 let g:airline_section_z = '' " current position in the file
 let g:airline_symbols.maxlinenr = ''
 let g:airline_symbols.linenr = ' '
