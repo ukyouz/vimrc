@@ -58,6 +58,7 @@ Plug 'tpope/vim-unimpaired'
 Plug 'mhinz/vim-startify', Cond(!exists('g:vscode'))
 " Plug 'lambdalisue/session.vim'
 Plug 'vim-scripts/restore_view.vim', Cond(!exists('g:vscode'))
+Plug 'RRethy/vim-illuminate'
 " Color Theme
 Plug 'rakr/vim-one'
 Plug 'ukyouz/onedark.vim'
@@ -232,6 +233,7 @@ set viewoptions=cursor,folds,slash,unix
 
 source $LOCALAPPDATA/nvim/config-plug/c-enhance.vim
 source $LOCALAPPDATA/nvim/config-plug/vim-sneak.vim
+source $LOCALAPPDATA/nvim/config-plug/vim-illuminate.vim
 source $LOCALAPPDATA/nvim/config-plug/vim-commentary.vim
 " source $LOCALAPPDATA/nvim/config-plug/vim-extended-surround-block-element.vim
 source $LOCALAPPDATA/nvim/config-plug/vim-highlightedyank.vim
