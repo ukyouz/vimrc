@@ -40,6 +40,7 @@ Plug 'equalsraf/neovim-gui-shim', Cond(!exists('g:vscode'))
 Plug 'andymass/vim-matchup'
 Plug 'michaeljsmith/vim-indent-object'
 Plug 'justinmk/vim-sneak'
+Plug 'rlane/pounce.nvim'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 Plug 'wellle/targets.vim'
@@ -233,6 +234,7 @@ set viewoptions=cursor,folds,slash,unix
 
 source $LOCALAPPDATA/nvim/config-plug/c-enhance.vim
 source $LOCALAPPDATA/nvim/config-plug/vim-sneak.vim
+source $LOCALAPPDATA/nvim/config-plug/pounce.vim
 source $LOCALAPPDATA/nvim/config-plug/vim-illuminate.vim
 source $LOCALAPPDATA/nvim/config-plug/vim-commentary.vim
 " source $LOCALAPPDATA/nvim/config-plug/vim-extended-surround-block-element.vim
