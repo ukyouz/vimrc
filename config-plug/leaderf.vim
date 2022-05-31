@@ -4,7 +4,7 @@
 let g:Lf_HideHelp = 1
 let g:Lf_UseCache = 1
 let g:Lf_UseVersionControlTool = 0
-let g:Lf_IgnoreCurrentBufferName = 0
+let g:Lf_IgnoreCurrentBufferName = 1
 " popup mode
 let g:Lf_WindowPosition = 'popup'
 let g:Lf_WindowHeight = 0.33
@@ -22,7 +22,7 @@ let g:Lf_PreviewResult = {
     \ 'Mru': 1,
     \ 'Tag': 0,
     \ 'BufTag': 1,
-    \ 'Function': 1,
+    \ 'Function': 0,
     \ 'Line': 1,
     \ 'Colorscheme': 1,
     \ 'Rg': 0,
@@ -52,6 +52,7 @@ let g:Lf_CacheDirectory = expand('~')
 let g:gutentags_cache_dir = expand(g:Lf_CacheDirectory.'/.LfCache/gtags')
 let g:Lf_CtagsFuncOpts = {
    \ 'python': '--langmap=Python:.py.pyw',
+   \ 'c': '--if0=yes --excmd=number --fields=+nS'
 \}
 let g:Lf_GtagsGutentags = 1
 let g:Lf_GtagsAutoGenerate = 0
@@ -99,11 +100,11 @@ nnoremap <silent> <leader>ll :<C-U><C-R>=printf("Leaderf line %s", "")<CR><CR>
 nnoremap <silent> <Leader>lf :Leaderf rg<CR>
 " nnoremap <silent> <Leader>lb :Leaderf rg --current-buffer<CR>
 " noremap <Leader>f :<C-U><C-R>=printf("Leaderf! rg --current-buffer -e %s ", expand("<cword>"))<CR><CR>
-nnoremap <silent> <Leader>j :<C-U><C-R>=printf("Leaderf! rg -e %s ", expand("<cword>"))<CR><CR>
-nnoremap <silent> <Leader>k :<C-U><C-R>=printf("Leaderf! rg -s -w -e %s ", expand("<cword>"))<CR><CR>
+nnoremap <silent> <Leader>j :<C-U><C-R>=printf("Leaderf! rg -s -F %s ", expand("<cword>"))<CR><CR>
+nnoremap <silent> <Leader>k :<C-U><C-R>=printf("Leaderf! rg -s -w -F %s ", expand("<cword>"))<CR><CR>
 " search visually selected text literally
-xnoremap <silent> <Leader>j :<C-U><C-R>=printf("Leaderf! rg -e %s ", leaderf#Rg#visual())<CR><CR>
-xnoremap <silent> <Leader>k :<C-U><C-R>=printf("Leaderf! rg -s -w -e %s ", leaderf#Rg#visual())<CR><CR>
+xnoremap <silent> <Leader>j :<C-U><C-R>=printf("Leaderf! rg -s -F %s ", leaderf#Rg#visual())<CR><CR>
+xnoremap <silent> <Leader>k :<C-U><C-R>=printf("Leaderf! rg -s -w -F %s ", leaderf#Rg#visual())<CR><CR>
 " restore latest search
 nnoremap <silent> <Leader>u :<C-U>Leaderf! rg --recall<CR>
 noremap <silent> <F4>      :<C-U>Leaderf! rg --next<CR>
