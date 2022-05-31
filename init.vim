@@ -93,7 +93,7 @@ Plug 'nvim-treesitter/nvim-treesitter-refactor'
 Plug 'lewis6991/spellsitter.nvim'
 " Plug 'romgrk/nvim-treesitter-context'
 " Plug 'folke/twilight.nvim'
-Plug 'nvim-treesitter/playground', Cond(!exists('g:vscode'))
+" Plug 'nvim-treesitter/playground', Cond(!exists('g:vscode'))
 " Plug 'lukas-reineke/indent-blankline.nvim'
 " Plug 'vim-python/python-syntax', {'for': ['python', 'py', 'pyw']}
 " Plug 'octol/vim-cpp-enhanced-highlight', {'for': ['c']}
