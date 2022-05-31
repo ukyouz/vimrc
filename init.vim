@@ -103,9 +103,10 @@ Plug 'lewis6991/spellsitter.nvim'
 call plug#end()
 
 let mapleader=" "
-" map ; :
+map ; :
 " imap kj <Esc>
 " imap jk <Esc>
+" nnoremap <silent> <F5> :set ft=unix ff=unix<CR>:w<CR>:e!<CR>
 nnoremap <silent> <F5> :e!<CR>
 " lazy macro repeat
 nnoremap <silent> <a-,> @@
@@ -166,6 +167,8 @@ nnoremap <silent> <C-,> :resize -3<CR>
 " nnoremap <silent> <C-0> <C-w>=
 " Toggle serch highlight
 nnoremap <silent> <C-;> :noh<CR>
+" auto-jump if only one match or list all matched tags
+" nnoremap <silent> <C-]> g<C-]>
 nnoremap <silent> <F12> <C-]>zt
 
 inoremap <C-s> <Esc>:w<CR>a
@@ -185,8 +188,14 @@ autocmd FocusGained,BufEnter,CursorHold,CursorHoldI *
 
 " Notification after file change
 " https://vi.stackexchange.com/questions/13091/autocmd-event-for-autoread
-autocmd FileChangedShellPost *
-  \ echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None
+autocmd FileChangedShellPost * silent
+  \ echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None | exec ":GutentagsUpdate!"
+
+" Return to last edit position when opening files (You want this!)
+autocmd BufReadPost *
+     \ if line("'\"") > 0 && line("'\"") <= line("$") |
+     \   exe "normal! g`\"" |
+     \ endif
 
 " show linenumber cursorline highlightsearch nowrap
 set shortmess+=at
@@ -270,3 +279,14 @@ source $LOCALAPPDATA/nvim/config-plug/nerdtree.vim
 source $LOCALAPPDATA/nvim/config-plug/startify.vim
 source $LOCALAPPDATA/nvim/config-plug/git-enhance.vim
 endif
+
+" load project-based vimrc
+function! LoadProjectVimrc()
+    let s:project_vimrc=findfile("vimrc", getcwd())
+    if exists("s:project_vimrc") && filereadable(expand(s:project_vimrc))
+        echom "source ".getcwd()."\\".s:project_vimrc
+        execute "source ".s:project_vimrc
+    endif
+endfunction
+execute LoadProjectVimrc()
+

@@ -18,7 +18,9 @@ endif
 set background=dark
 " colorscheme base16-eighties
 let g:one_allow_italics = 1 " I love italic for comments
+let g:onedark_style = 'darker'
 colorscheme onedark
+" colorscheme nordfox
 " colorscheme solarized8
 if g:colors_name ==# 'one'
 " call one#highlight('name', 'Foreground', 'Background', 'none')
@@ -50,10 +52,6 @@ call one#highlight('DiffText'   , s:visual_grey, s:light_green, 'none')
 call one#highlight('DiffLine'   , s:visual_grey, s:dark_green , 'none')
 call one#highlight('DiffAdded'  , s:visual_grey, s:light_green, 'none')
 call one#highlight('DiffRemoved', s:visual_grey, s:light_red  , 'none')
-endif
-
-if g:colors_name ==# 'onedark'
-    let g:onedark_style = 'deep'
 endif
 
 "let ayucolor="mirage"   " for dark version of theme
