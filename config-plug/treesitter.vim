@@ -1,4 +1,5 @@
 lua <<EOF
+require'spellsitter'.setup()
 require'nvim-treesitter.configs'.setup {
   highlight = { enable = true, },
   incremental_selection = {

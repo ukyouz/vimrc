@@ -88,6 +88,7 @@ Plug 'kdheepak/lazygit.nvim', Cond(!exists('g:vscode'))
 Plug 'nvim-treesitter/nvim-treesitter'
 Plug 'nvim-treesitter/nvim-treesitter-textobjects'
 Plug 'nvim-treesitter/nvim-treesitter-refactor'
+Plug 'lewis6991/spellsitter.nvim'
 " Plug 'romgrk/nvim-treesitter-context'
 " Plug 'folke/twilight.nvim'
 Plug 'nvim-treesitter/playground', Cond(!exists('g:vscode'))
