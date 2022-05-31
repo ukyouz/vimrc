@@ -117,11 +117,13 @@ vnoremap <silent> * :<C-U>
   \gvy/<C-R><C-R>=substitute(
   \escape(@", '/\.*$^~['), '\_s\+', '\\_s\\+', 'g')<CR><CR>
   \gV:call setreg('"', old_reg, old_regtype)<CR>
+  \:normal N<CR>
 vnoremap <silent> # :<C-U>
   \let old_reg=getreg('"')<Bar>let old_regtype=getregtype('"')<CR>
   \gvy?<C-R><C-R>=substitute(
   \escape(@", '?\.*$^~['), '\_s\+', '\\_s\\+', 'g')<CR><CR>
   \gV:call setreg('"', old_reg, old_regtype)<CR>
+  \:normal N<CR>
 
 function! SaveJump(motion)
   if exists('#SaveJump#CursorMoved')
@@ -201,6 +203,8 @@ set mouse=a
 set list listchars=tab:\┊\ ,trail:·,extends:?,precedes:?,nbsp:×
 set title
 set titlestring=%{getcwd()}\ \|\ %f\ %a%r%m
+set lazyredraw
+set path+=**
 
 " Turn backup off
 set nobackup nowb noswapfile
