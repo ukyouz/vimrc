@@ -2,9 +2,11 @@ filetype plugin on
 " Specify a directory for plugins
 " - For Neovim: stdpath('data') . '/plugged'
 " - Avoid using standard Vim directory names like 'plugin'
-" let g:python3_host_prog=expand('D:/Applications/Neovim/bin/python.exe') " Python 3
-let g:python3_host_prog=expand('$LOCALAPPDATA\Programs\Python\Python38\python.exe') " Python 3
-call plug#begin('~/.vim/plugged')
+" let g:python3_host_prog=expand('$LOCALAPPDATA\Programs\Python\Python310\python.exe') " Python 3
+let g:python3_host_prog=expand('python') " Python 3
+let g:SignatureMarkTextHLDynamic = 1
+let g:SignatureMarkerTextHLDynamic = 1
+call plug#begin('D:/AppD932/.vim/plugged')
 
 function! Cond(cond, ...)
   let opts = get(a:000, 0, {})
@@ -27,7 +29,7 @@ Plug 'scrooloose/nerdtree', Cond(!exists('g:vscode'))
 " Plug 'chazy/cscope_maps'
 Plug 'Yggdroot/LeaderF' ", { 'do': './install.sh' }
 Plug 'ukyouz/LeaderF-git'
-" Plug 'kshenoy/vim-signature'
+Plug 'kshenoy/vim-signature', Cond(!exists('g:vscode'))
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'skywind3000/vim-preview'
 " Plug 'skywind3000/gutentags_plus'
@@ -151,6 +153,22 @@ endfunction
 nnoremap <silent> <C-u> :<C-u>call SaveJump("\<lt>C-u>")<CR>:call SetJump()<CR>
 nnoremap <silent> <C-d> :<C-u>call SaveJump("\<lt>C-d>")<CR>:call SetJump()<CR>
 
+" directly open grep/lgrep window without "Press Enter"
+" https://stackoverflow.com/questions/61361423/grep-in-vim-opens-terminal-with-results-before-showing-them-in-vim
+function! Grep(...)
+    return system(join([&grepprg] + [a:1] + [expandcmd(join(a:000[1:-1], ' '))], ' '))
+endfunction
+command! -nargs=+ -complete=file_in_path -bar Grep  cgetexpr Grep(<f-args>)
+command! -nargs=+ -complete=file_in_path -bar LGrep lgetexpr Grep(<f-args>)
+cnoreabbrev <expr> grep  (getcmdtype() ==# ':' && getcmdline() ==# 'grep')  ? 'Grep'  : 'grep'
+cnoreabbrev <expr> lgrep (getcmdtype() ==# ':' && getcmdline() ==# 'lgrep') ? 'LGrep' : 'lgrep'
+
+augroup quickfix
+    autocmd!
+    autocmd QuickFixCmdPost cgetexpr cwindow
+    autocmd QuickFixCmdPost lgetexpr lwindow
+augroup END
+
 " Reload vimr configuration file
 nnoremap <Leader>vr :source $MYVIMRC<CR>
 
@@ -189,13 +207,19 @@ autocmd FocusGained,BufEnter,CursorHold,CursorHoldI *
 " Notification after file change
 " https://vi.stackexchange.com/questions/13091/autocmd-event-for-autoread
 autocmd FileChangedShellPost * silent
-  \ echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None | exec ":GutentagsUpdate!"
+  \ echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None
 
 " Return to last edit position when opening files (You want this!)
 autocmd BufReadPost *
      \ if line("'\"") > 0 && line("'\"") <= line("$") |
      \   exe "normal! g`\"" |
      \ endif
+
+augroup correct_filetype
+  au!
+  autocmd BufNewFile,BufRead *.html   set syntax=html
+  autocmd BufNewFile,BufRead *.md     set spell
+augroup END
 
 " show linenumber cursorline highlightsearch nowrap
 set shortmess+=at
@@ -215,7 +239,7 @@ set list listchars=tab:\┊\ ,trail:·,extends:?,precedes:?,nbsp:×
 set title
 set titlestring=%{getcwd()}\ \|\ %f\ %a%r%m
 set lazyredraw
-set path+=**
+" set path+=**
 
 " Turn backup off
 set nobackup nowb noswapfile
